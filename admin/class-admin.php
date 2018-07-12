@@ -83,18 +83,7 @@ class Admin {
 		// Credits in admin footer.
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer' ], 1 );
 
-		/**
-		 * Backend search form template.
-		 *
-		 * The necessity for this came from a search widget in the custom welcome
-		 * panel with the Twenty Seventeen theme activated. The SVG used in the
-		 * theme template does not display. So the thought here is to use a basic
-		 * form as a reset.
-		 *
-		 * Filters have also been applied for changing placeholder and button text.
-		 *
-		 * @since 1.0.0
-		 */
+		// Backend search form template.
 		add_filter( 'get_search_form', [ $this, 'search_form' ] );
 
 		// Enqueue the stylesheets for the admin area.
@@ -258,85 +247,15 @@ class Admin {
 		// Get the name of the site from Settings > General.
 		$site = get_bloginfo( 'name' );
 
-		/**
-		 * If the Advanced Custom Fields Pro plugin is active then
-		 * we use the input from the fields on the ACF options page.
-		 *
-		 * @since  1.0.0
-		 */
-		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
-			/**
-			 * Get the fields registered by this plugin. An additional parameter
-			 * of 'option' must be included to target the options page.
-			 */
-			$credit = get_field( 'burcon_admin_footer_credit', 'option' );
-			$link   = get_field( 'burcon_admin_footer_link', 'option' );
-
-			// If a name and a URL are provided.
-			if ( $credit && $link ) {
-				$footer = sprintf(
-					'%1s %2s <a href="%3s" target="_blank">%4s</a>. ',
-					$site,
-					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
-					esc_url( $link ),
-					$credit
-				);
-			// If only a name is provided.
-			} elseif ( $credit ) {
-				$footer = sprintf(
-					'%1s %2s %3s. ',
-					$site,
-					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
-					$credit
-				);
-			// If no input we use the name of the site.
-			} else {
-				$footer = sprintf(
-					'%1s %2s. ',
-					$site,
-					esc_html__( 'website powered by WordPress', 'burcon-outfitters' )
-				);
-			}
-
-		/**
-		 * If the Advanced Custom Fields Pro plugin is not active then
-		 * we use the input from the fields on the WordPress options page.
-		 *
-		 * @since  1.0.0
-		 */
-		} else {
-
-			$credit = sanitize_text_field( get_option( 'burcon_footer_credit' ) );
-			$link   = esc_url_raw( get_option( 'burcon_footer_link' ) );
-
-			// If a name and a URL are provided.
-			if ( $credit && $link ) {
-				$footer = sprintf(
-					'%1s %2s <a href="%3s" target="_blank">%4s</a>. ',
-					$site,
-					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
-					esc_url( $link ),
-					$credit
-				);
-			// If only a name is provided.
-			} elseif ( $credit ) {
-				$footer = sprintf(
-					'%1s %2s %3s. ',
-					$site,
-					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
-					$credit
-				);
-			// If no input we use the name of the site.
-			} else {
-				$footer = sprintf(
-					'%1s %2s. ',
-					$site,
-					esc_html__( 'website powered by WordPress', 'burcon-outfitters' )
-				);
-			}
-
-		}
+		// Footer message.
+		$footer = sprintf(
+			'%1s %2s <a href="%3s" target="_blank">%4s</a>. ',
+			$site,
+			esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
+			esc_url( 'http://ccdzine.com/' ),
+			'Controlled Chaos Design'
+		);
 
 		// Apply a filter for unforseen possibilities.
 		$admin_footer = apply_filters( 'burcon_admin_footer', $footer );

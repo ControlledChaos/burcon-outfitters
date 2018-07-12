@@ -1,8 +1,8 @@
 <?php
 /**
- * Burcon Outfitters starter plugin
+ * Burcon Outfitters
  *
- * Change this header information to suit your needs.
+ * The base plugin for the Burcon Outfitters suite of websites.
  *
  * @package     Burcon_Outfitters
  * @version     1.0.0
@@ -11,11 +11,11 @@
  * @link        https://github.com/ControlledChaos/burcon-outfitters
  * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
- * Plugin Name: Burcon Outfitters Plugin
+ * Plugin Name: Burcon Outfitters
  * Plugin URI:  https://github.com/ControlledChaos/burcon-outfitters
- * Description: A WordPress starter/boilerplate for site-specific plugins.
+ * Description: The base plugin for the Burcon Outfitters suite of websites.
  * Version:     1.0.0
- * Author:      Burcon Outfitters Design
+ * Author:      Controlled Chaos Design
  * Author URI:  http://ccdzine.com/
  * License:     GPL-3.0+
  * License URI: https://www.gnu.org/licenses/gpl.txt

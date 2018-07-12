@@ -73,24 +73,17 @@ $tabs = [
 
 	// Script Options tab.
     sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
+        '<li><a href="%1s"><span class="dashicons dashicons-editor-code"></span> %2s</a></li>',
         '#scripts',
         esc_html__( 'Script Options', 'burcon-outfitters' )
 	),
 
 	// Media Options tab.
     sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
+        '<li><a href="%1s"><span class="dashicons dashicons-admin-media"></span> %2s</a></li>',
         '#media',
         esc_html__( 'Media Options', 'burcon-outfitters' )
 	),
-
-	// Dev Tools tab.
-    sprintf(
-        '<li><a href="%1s"><span class="dashicons dashicons-welcome-learn-more"></span> %2s</a></li>',
-        '#tools',
-        esc_html__( 'Development Tools', 'burcon-outfitters' )
-    ),
 
 ];
 
@@ -103,7 +96,7 @@ $page_tabs = apply_filters( 'burcon_tabs_page_about', $tabs );
 	<!-- Page heading -->
 	<?php echo sprintf( '<h1 class="wp-heading-inline">%1s %2s</h1>', get_bloginfo( 'name' ), esc_html__( 'Plugin', 'burcon-outfitters' ) ); ?>
 	<!-- Page description -->
-    <p class="description"><?php esc_html_e( 'A feature-packed WordPress starter plugin for building custom-tailored websites.', 'burcon-outfitters' ); ?></p>
+    <p class="description"><?php esc_html_e( 'The base plugin for the Burcon Outfitters suite of websites.', 'burcon-outfitters' ); ?></p>
 	<!-- Ornamental divider -->
 	<hr class="wp-header-end">
 	<!-- Begin jQuery tabbed content -->
@@ -125,9 +118,6 @@ $page_tabs = apply_filters( 'burcon_tabs_page_about', $tabs );
 		</div>
 		<div id="media"><!-- Media Options content -->
 			<?php include_once plugin_dir_path( __FILE__ ) . 'plugin-page-media-options.php'; ?>
-		</div>
-		<div id="tools"><!-- Dev Tools content -->
-			<?php include_once plugin_dir_path( __FILE__ ) . 'plugin-page-dev-tools.php'; ?>
 		</div>
 		<?php // Hook for adding tabbed content.
 		do_action( 'burcon_content_page_about_after' ); ?>

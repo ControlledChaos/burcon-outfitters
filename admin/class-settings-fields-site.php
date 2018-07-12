@@ -425,36 +425,6 @@ class Settings_Fields_Site {
 			'burcon-site-admin-pages'
 		);
 
-		// Admin footer credit.
-		add_settings_field(
-			'burcon_footer_credit',
-			__( 'Admin Footer Credit', 'burcon-outfitters' ),
-			[ $this, 'burcon_footer_credit_callback' ],
-			'burcon-site-admin-pages',
-			'burcon-site-admin-pages',
-			[ esc_html__( 'The "developed by" credit.', 'burcon-outfitters' ) ]
-		);
-
-		register_setting(
-			'burcon-site-admin-pages',
-			'burcon_footer_credit'
-		);
-
-		// Admin footer link.
-		add_settings_field(
-			'burcon_footer_link',
-			__( 'Admin Footer Link', 'burcon-outfitters' ),
-			[ $this, 'burcon_footer_link_callback' ],
-			'burcon-site-admin-pages',
-			'burcon-site-admin-pages',
-			[ esc_html__( 'Link to the website devoloper.', 'burcon-outfitters' ) ]
-		);
-
-		register_setting(
-			'burcon-site-admin-pages',
-			'burcon_footer_link'
-		);
-
 		/**
 		 * Meta & SEO settings.
 		 *
@@ -885,46 +855,6 @@ class Settings_Fields_Site {
 		$html = '<p><input type="checkbox" id="burcon_hide_links" name="burcon_hide_links" value="1" ' . checked( 1, $option, false ) . '/>';
 
 		$html .= '<label for="burcon_hide_links"> ' . $args[0] . '</label></p>';
-
-		echo $html;
-
-	}
-
-	/**
-	 * Admin footer credit.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  array $args Extra arguments passed into the callback function.
-	 * @return string
-	 */
-	public function burcon_footer_credit_callback( $args ) {
-
-		$option = get_option( 'burcon_footer_credit' );
-
-		$html = '<p><input type="text" size="50" id="burcon_footer_credit" name="burcon_footer_credit" value="' . esc_attr( $option ) . '" placeholder="' . esc_attr( __( 'Your name/agency', 'burcon-outfitters' ) ) . '" /><br />';
-
-		$html .= '<label for="burcon_footer_credit"> ' . $args[0] . '</label></p>';
-
-		echo $html;
-
-	}
-
-	/**
-	 * Admin footer link.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  array $args Extra arguments passed into the callback function.
-	 * @return string
-	 */
-	public function burcon_footer_link_callback( $args ) {
-
-		$option = get_option( 'burcon_footer_link' );
-
-		$html = '<p><input type="text" size="50" id="burcon_footer_link" name="burcon_footer_link" value="' . esc_attr( $option ) . '" placeholder="' . esc_attr( 'http://example.com/' ) . '" /><br />';
-
-		$html .= '<label for="burcon_footer_link"> ' . $args[0] . '</label></p>';
 
 		echo $html;
 

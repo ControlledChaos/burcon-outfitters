@@ -175,14 +175,6 @@ class Admin_Pages {
 			'callback' => [ $this, 'help_plugin_info' ]
 		] );
 
-        // Convert plugin tab.
-		$screen->add_help_tab( [
-			'id'       => 'help_convert_plugin',
-			'title'    => __( 'Convert Plugin', 'burcon-outfitters' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_convert_plugin' ]
-		] );
-
         // Add a help sidebar.
 		$screen->set_help_sidebar(
 			$this->help_about_page_sidebar()
@@ -198,17 +190,6 @@ class Admin_Pages {
 	public function help_plugin_info() {
 
 		include_once plugin_dir_path( __FILE__ ) . 'partials/help/help-plugin-info.php';
-
-    }
-
-    /**
-     * Get convert plugin help tab content.
-	 *
-	 * @since      1.0.0
-     */
-	public function help_convert_plugin() {
-
-		include_once plugin_dir_path( __FILE__ ) . 'partials/help/help-plugin-convert.php';
 
     }
 
