@@ -2,7 +2,7 @@
 /**
  * Settings page for site customization.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -84,21 +84,21 @@ class Settings_Page_Site {
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
 			$title      = apply_filters( 'site_settings_page_name', get_bloginfo( 'name' ) );
-			$position   = get_field( 'ccp_settings_link_position', 'option' );
-			$link_label = get_field( 'ccp_site_settings_link_label', 'option' );
+			$position   = get_field( 'burcon_settings_link_position', 'option' );
+			$link_label = get_field( 'burcon_site_settings_link_label', 'option' );
 
 			if ( $link_label ) {
 				$label = $link_label;
 			}  else {
-				$label = __( 'Site Settings', 'controlled-chaos-plugin' );
+				$label = __( 'Site Settings', 'burcon-outfitters' );
 			}
 
 			if ( 'top' == $position ) {
 
 				$settings = apply_filters( 'controlled_chaos_site_settings_page_top', [
-					'page_title' => $title . __( ' Settings', 'controlled-chaos-plugin' ),
+					'page_title' => $title . __( ' Settings', 'burcon-outfitters' ),
 					'menu_title' => $label,
-					'menu_slug'  => CCP_ADMIN_SLUG . '-settings',
+					'menu_slug'  => BURCON_ADMIN_SLUG . '-settings',
 					'icon_url'   => 'dashicons-admin-settings',
 					'position'   => 3,
 					'capability' => 'manage_options',
@@ -110,9 +110,9 @@ class Settings_Page_Site {
 			} else {
 
 				$settings = apply_filters( 'controlled_chaos_site_settings_page_default', [
-					'page_title' => $title . __( ' Settings', 'controlled-chaos-plugin' ),
+					'page_title' => $title . __( ' Settings', 'burcon-outfitters' ),
 					'menu_title' => $label,
-					'menu_slug'  => CCP_ADMIN_SLUG . '-settings',
+					'menu_slug'  => BURCON_ADMIN_SLUG . '-settings',
 					'parent'     => 'index.php',
 					'capability' => 'manage_options'
 				] );
@@ -122,20 +122,20 @@ class Settings_Page_Site {
 
 		} else {
 
-			$link_label = sanitize_text_field( get_option( 'ccp_site_settings_link_label' ) );
-			$position   = get_option( 'ccp_site_settings_position' );
-			$link_icon  = sanitize_text_field( get_option( 'ccp_site_settings_link_icon' ) );
+			$link_label = sanitize_text_field( get_option( 'burcon_site_settings_link_label' ) );
+			$position   = get_option( 'burcon_site_settings_position' );
+			$link_icon  = sanitize_text_field( get_option( 'burcon_site_settings_link_icon' ) );
 
 			if ( $link_label ) {
 				$label = $link_label;
 			}  else {
-				$label = __( 'Site Settings', 'controlled-chaos-plugin' );
+				$label = __( 'Site Settings', 'burcon-outfitters' );
 			}
 
 			if ( $link_icon ) {
 				$icon = $link_icon;
 			}  else {
-				$icon = __( 'dashicons-admin-settings', 'controlled-chaos-plugin' );
+				$icon = __( 'dashicons-admin-settings', 'burcon-outfitters' );
 			}
 
 			if ( $position ) {
@@ -143,7 +143,7 @@ class Settings_Page_Site {
 					$label,
 					$label,
 					'manage_options',
-					CCP_ADMIN_SLUG . '-settings',
+					BURCON_ADMIN_SLUG . '-settings',
 					[ $this, 'page_output' ],
 					$icon,
 					3
@@ -154,7 +154,7 @@ class Settings_Page_Site {
 					$label,
 					$label,
 					'manage_options',
-					CCP_ADMIN_SLUG . '-settings',
+					BURCON_ADMIN_SLUG . '-settings',
 					[ $this, 'page_output' ]
 				);
 			}
@@ -185,11 +185,11 @@ class Settings_Page_Site {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_page_site() {
+function burcon_settings_page_site() {
 
 	return Settings_Page_Site::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_page_site();
+burcon_settings_page_site();

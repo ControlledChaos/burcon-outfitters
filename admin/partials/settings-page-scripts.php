@@ -2,7 +2,7 @@
 /**
  * Script options page output.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials
  *
  * @since      1.0.0
@@ -40,23 +40,23 @@ $tabs = [
     // General options tab.
     sprintf(
         '<a href="?page=%1s-scripts&tab=general" class="nav-tab %2s"><span class="dashicons dashicons-admin-tools"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        BURCON_ADMIN_SLUG,
         $active_tab == 'general' ? 'nav-tab-active' : '',
-        esc_html__( 'General', 'controlled-chaos-plugin' )
+        esc_html__( 'General', 'burcon-outfitters' )
     ),
 
     // Vendor options tab.
     sprintf(
         '<a href="?page=%1s-scripts&tab=vendor" class="nav-tab %2s"><span class="dashicons dashicons-admin-plugins"></span> %3s</a>',
-        CCP_ADMIN_SLUG,
+        BURCON_ADMIN_SLUG,
         $active_tab == 'vendor' ? 'nav-tab-active' : '',
-        esc_html__( 'Vendor', 'controlled-chaos-plugin' )
+        esc_html__( 'Vendor', 'burcon-outfitters' )
     )
 
 ];
 
 // Apply a filter to the tabs array for adding tabs.
-$page_tabs = apply_filters( 'ccp_tabs_script_options', $tabs );
+$page_tabs = apply_filters( 'burcon_tabs_script_options', $tabs );
 
 /**
  * Do settings section and fields by tab.
@@ -65,19 +65,19 @@ $page_tabs = apply_filters( 'ccp_tabs_script_options', $tabs );
  * @return void
  */
 if ( 'general' == $active_tab ) {
-    $section = 'ccp-scripts-general';
-    $fields  = 'ccp-scripts-general';
+    $section = 'burcon-scripts-general';
+    $fields  = 'burcon-scripts-general';
 } elseif ( 'vendor' == $active_tab ) {
-    $section = 'ccp-scripts-vendor';
-    $fields  = 'ccp-scripts-vendor';
+    $section = 'burcon-scripts-vendor';
+    $fields  = 'burcon-scripts-vendor';
 } else {
     $section = null;
     $fields  = null;
 }
 
 // Apply filters to the sections and fields for new tabs.
-$do_section = apply_filters( 'ccp_section_script_options', $section );
-$do_fields  = apply_filters( 'ccp_fields_script_options', $fields );
+$do_section = apply_filters( 'burcon_section_script_options', $section );
+$do_fields  = apply_filters( 'burcon_fields_script_options', $fields );
 
 
 /**
@@ -87,23 +87,23 @@ $do_fields  = apply_filters( 'ccp_fields_script_options', $fields );
  * @return string Returns the button label.
  */
 if ( 'general' == $active_tab  ) {
-    $save = __( 'Save General', 'controlled-chaos-plugin' );
+    $save = __( 'Save General', 'burcon-outfitters' );
 } elseif ( 'vendor' == $active_tab ) {
-    $save = __( 'Save Vendor', 'controlled-chaos-plugin' );
+    $save = __( 'Save Vendor', 'burcon-outfitters' );
 } else {
-    $save = __( 'Save Settings', 'controlled-chaos-plugin' );
+    $save = __( 'Save Settings', 'burcon-outfitters' );
 }
 
 // Apply a filter for new tabs added by another plugin or from a theme.
-$button = apply_filters( 'ccp_save_script_options', $save );
+$button = apply_filters( 'burcon_save_script_options', $save );
 
 ?>
 <div class="wrap">
-    <h1 class="wp-heading-inline"><?php esc_html_e( 'Script Options', 'controlled-chaos-plugin' ); ?></h1>
+    <h1 class="wp-heading-inline"><?php esc_html_e( 'Script Options', 'burcon-outfitters' ); ?></h1>
     <?php if ( is_rtl() ) : ?>
-    <p class="description"><?php esc_html_e( 'Script settings from the Controlled Chaos plugin. More information in the Help tab at upper left.', 'controlled-chaos-plugin' ); ?></p>
+    <p class="description"><?php esc_html_e( 'Script settings from the Controlled Chaos plugin. More information in the Help tab at upper left.', 'burcon-outfitters' ); ?></p>
     <?php else : ?>
-    <p class="description"><?php esc_html_e( 'Script settings from the Controlled Chaos plugin. More information in the Help tab at upper right.', 'controlled-chaos-plugin' ); ?></p>
+    <p class="description"><?php esc_html_e( 'Script settings from the Controlled Chaos plugin. More information in the Help tab at upper right.', 'burcon-outfitters' ); ?></p>
     <?php endif; ?>
     <hr class="wp-header-end">
     <h2 class="nav-tab-wrapper">

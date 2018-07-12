@@ -6,7 +6,7 @@
  * at which several tools for the website development process
  * are provieded.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -82,10 +82,10 @@ class Settings_Page_Dev_Tools {
 
 		$this->page_help_section = add_submenu_page(
 			'tools.php',
-			__( 'Website Development', 'controlled-chaos-plugin' ),
-			__( 'Site Development', 'controlled-chaos-plugin' ),
+			__( 'Website Development', 'burcon-outfitters' ),
+			__( 'Site Development', 'burcon-outfitters' ),
 			'manage_options',
-			CCP_ADMIN_SLUG . '-dev-tools',
+			BURCON_ADMIN_SLUG . '-dev-tools',
 			[ $this, 'page_output' ]
 		);
 
@@ -125,7 +125,7 @@ class Settings_Page_Dev_Tools {
 		// More information.
 		$screen->add_help_tab( [
 			'id'       => 'help_dev_info',
-			'title'    => __( 'More Information', 'controlled-chaos-plugin' ),
+			'title'    => __( 'More Information', 'burcon-outfitters' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_dev_info_output' ]
 		] );
@@ -174,11 +174,11 @@ class Settings_Page_Dev_Tools {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_page_dev_tools() {
+function burcon_settings_page_dev_tools() {
 
 	return Settings_Page_Dev_Tools::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_page_dev_tools();
+burcon_settings_page_dev_tools();

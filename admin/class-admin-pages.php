@@ -2,7 +2,7 @@
 /**
  * New admin pages and admin screen modification.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -99,20 +99,20 @@ class Admin_Pages {
      */
     public function about_plugin() {
 
-        $link_label = sanitize_text_field( get_option( 'ccp_site_plugin_link_label' ) );
-        $position   = get_option( 'ccp_site_plugin_position' );
-        $link_icon  = sanitize_text_field( get_option( 'ccp_site_plugin_link_icon' ) );
+        $link_label = sanitize_text_field( get_option( 'burcon_site_plugin_link_label' ) );
+        $position   = get_option( 'burcon_site_plugin_position' );
+        $link_icon  = sanitize_text_field( get_option( 'burcon_site_plugin_link_icon' ) );
 
         if ( $link_label ) {
             $label = $link_label;
         }  else {
-            $label = __( 'Site Plugin', 'controlled-chaos-plugin' );
+            $label = __( 'Site Plugin', 'burcon-outfitters' );
         }
 
         if ( $link_icon ) {
             $icon = $link_icon;
         }  else {
-            $icon = __( 'dashicons-welcome-learn-more', 'controlled-chaos-plugin' );
+            $icon = __( 'dashicons-welcome-learn-more', 'burcon-outfitters' );
         }
 
         if ( $position ) {
@@ -120,7 +120,7 @@ class Admin_Pages {
                 $label,
                 $label,
                 'manage_options',
-                CCP_ADMIN_SLUG . '-page',
+                BURCON_ADMIN_SLUG . '-page',
                 [ $this, 'about_plugin_output' ],
                 $icon,
                 3
@@ -131,7 +131,7 @@ class Admin_Pages {
                 $label,
                 $label,
                 'manage_options',
-                CCP_ADMIN_SLUG . '-page',
+                BURCON_ADMIN_SLUG . '-page',
                 [ $this, 'about_plugin_output' ]
             );
         }
@@ -170,7 +170,7 @@ class Admin_Pages {
 		// More information tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_plugin_info',
-			'title'    => __( 'More Information', 'controlled-chaos-plugin' ),
+			'title'    => __( 'More Information', 'burcon-outfitters' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_plugin_info' ]
 		] );
@@ -178,7 +178,7 @@ class Admin_Pages {
         // Convert plugin tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_convert_plugin',
-			'title'    => __( 'Convert Plugin', 'controlled-chaos-plugin' ),
+			'title'    => __( 'Convert Plugin', 'burcon-outfitters' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_convert_plugin' ]
 		] );
@@ -219,22 +219,22 @@ class Admin_Pages {
      */
     public function help_about_page_sidebar() {
 
-        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'controlled-chaos-plugin' ) );
+        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'burcon-outfitters' ) );
         $html .= sprintf(
             '<p>%1s %2s.</p>',
-            __( 'This plugin was originally written by', 'controlled-chaos-plugin' ),
+            __( 'This plugin was originally written by', 'burcon-outfitters' ),
             'Greg Sweet'
         );
         $html .= sprintf(
             '<p>%1s <br /><a href="%2s" target="_blank">%3s</a> <br />%4s</p>',
-            __( 'Visit:', 'controlled-chaos-plugin' ),
+            __( 'Visit:', 'burcon-outfitters' ),
             'http://ccdzine.com/',
             'Controlled Chaos Design',
-            __( 'for more free downloads.', 'controlled-chaos-plugin' )
+            __( 'for more free downloads.', 'burcon-outfitters' )
         );
         $html .= sprintf(
             '<p>%1s</p>',
-            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this plugin.', 'controlled-chaos-plugin' )
+            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this plugin.', 'burcon-outfitters' )
          );
 
 		return $html;
@@ -261,11 +261,11 @@ class Admin_Pages {
 
         // Post type: post.
         if ( 'post' == $screen->post_type ) {
-            $post_title = esc_html__( 'Post Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Post Title', 'burcon-outfitters' );
 
         // Post type: page.
         } elseif ( 'page' == $screen->post_type ) {
-            $post_title = esc_html__( 'Page Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Page Title', 'burcon-outfitters' );
 
         // Post type: attachment.
         } elseif ( $screen->post_type == 'attachment' ) {
@@ -273,11 +273,11 @@ class Admin_Pages {
 
         // Post type: custom, unidentified.
         } else {
-            $post_title = esc_html__( 'Enter Title', 'controlled-chaos-plugin' );
+            $post_title = esc_html__( 'Enter Title', 'burcon-outfitters' );
         }
 
         // Apply a filter conditional modification.
-        $title = apply_filters( 'ccp_post_title_placeholders', $post_title );
+        $title = apply_filters( 'burcon_post_title_placeholders', $post_title );
 
         // Return the new placeholder.
         return $title;
@@ -385,7 +385,7 @@ class Admin_Pages {
         $size  = 'Column Thumbnail';
 
         // Apply a filter for conditional modification.
-        $thumb = apply_filters( 'ccp_column_thumbnail_size', $size );
+        $thumb = apply_filters( 'burcon_column_thumbnail_size', $size );
 
         // If there is an ID (if the post has a featured image).
         if ( $post_thumbnail_id ) {
@@ -411,10 +411,10 @@ class Admin_Pages {
     public function image_column_head( $defaults ) {
 
         // The column heading name.
-        $name    = __( 'Featured Image', 'controlled-chaos-plugin' );
+        $name    = __( 'Featured Image', 'burcon-outfitters' );
 
         // Apply a filter for conditional modification.
-        $heading = apply_filters( 'ccp_image_column_head', $name );
+        $heading = apply_filters( 'burcon_image_column_head', $name );
 
         // The column heading name to new `featured_image` column.
         $defaults['featured_image'] = esc_html__( $heading );
@@ -471,11 +471,11 @@ class Admin_Pages {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_admin_pages() {
+function burcon_admin_pages() {
 
 	return Admin_Pages::instance();
 
 }
 
 // Run an instance of the class.
-ccp_admin_pages();
+burcon_admin_pages();

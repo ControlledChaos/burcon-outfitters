@@ -2,7 +2,7 @@
 /**
  * Live theme test.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Tools
  *
  * @since      1.0.0
@@ -27,10 +27,10 @@ function themedrive_is_enabled() {
 // Admin Panel
 function themedrive_add_pages() {
     add_theme_page(
-        __( 'Live Theme Test', 'controlled-chaos-plugin' ),
-        __( 'Theme Test', 'controlled-chaos-plugin' ),
+        __( 'Live Theme Test', 'burcon-outfitters' ),
+        __( 'Theme Test', 'burcon-outfitters' ),
         'edit_theme_options',
-        CCP_ADMIN_SLUG . '-theme-test',
+        BURCON_ADMIN_SLUG . '-theme-test',
         'themedrive_options_page' );
 }
 add_action( 'admin_menu', 'themedrive_add_pages' );
@@ -184,7 +184,7 @@ function themedrive_switcher() {
 
         echo sprintf(
             '<p><strong><span style="color: #199e26"><span class="dashicons dashicons-visibility" style="vertical-align: text-top"></span> %1s %2s</span></strong></p>',
-            __( 'Live Theme Test is enabled with', 'controlled-chaos-plugin' ),
+            __( 'Live Theme Test is enabled with', 'burcon-outfitters' ),
             $theme_name
         );
     } else {
@@ -193,8 +193,8 @@ function themedrive_switcher() {
 
         echo sprintf(
             '<p><strong><span style="color: #d00"><span class="dashicons dashicons-hidden" style="vertical-align: text-top"></span> %1s</span>. %2s %3s</strong></p>',
-            __( 'Live Theme Test is disabled', 'controlled-chaos-plugin' ),
-            __( 'The active theme is', 'controlled-chaos-plugin' ),
+            __( 'Live Theme Test is disabled', 'burcon-outfitters' ),
+            __( 'The active theme is', 'burcon-outfitters' ),
             $theme_name
         );
     }
@@ -236,11 +236,11 @@ function themedrive_options_page() {
 
         $msg_status = sprintf(
             '%1s %2s %3s. <a href="%4s" target="_blank">%5s</a>',
-            __( 'Live theme test is enabled with', 'controlled-chaos-plugin' ),
+            __( 'Live theme test is enabled with', 'burcon-outfitters' ),
             $get_theme_name,
-            __( 'theme', 'controlled-chaos-plugin' ),
+            __( 'theme', 'burcon-outfitters' ),
             esc_url( site_url() ),
-            __( 'View Site', 'controlled-chaos-plugin' )
+            __( 'View Site', 'burcon-outfitters' )
         );
 
         // Show message
@@ -252,7 +252,7 @@ function themedrive_options_page() {
         // Delete the option from the DB if it's empty
         delete_option( 'td_themes' );
 
-        $msg_status = __( 'Live theme test has been disabled.', 'controlled-chaos-plugin' );
+        $msg_status = __( 'Live theme test has been disabled.', 'burcon-outfitters' );
 
         // Show message
         echo '<div id="setting-error-settings_updated" class="notice notice-success is-dismissible"><p>' . $msg_status . '</p></div>';
@@ -269,26 +269,26 @@ function themedrive_options_page() {
 
 ?>
 <div class="wrap" >
-    <h2><?php _e( 'Live Theme Test', 'controlled-chaos-plugin' ); ?></h2>
+    <h2><?php _e( 'Live Theme Test', 'burcon-outfitters' ); ?></h2>
     <?php $action_url; ?>
     <?php if ( ! isset( $action_url) )
         $action_url = '';
     ?>
     <form name="form_apu" method="post" action="<?php echo $action_url ?>">
     <?php wp_nonce_field( 'theme-drive' ); ?>
-        <h2><?php _e( 'Instructions', 'controlled-chaos-plugin' ); ?></h2>
+        <h2><?php _e( 'Instructions', 'burcon-outfitters' ); ?></h2>
         <ol>
-            <li><?php _e( 'Select a theme to preview live on the site from the select box below (lists all installed themes).', 'controlled-chaos-plugin' ); ?></li>
-            <li><?php _e( 'Enable theme test', 'controlled-chaos-plugin' ); ?></li>
-            <li><?php _e( 'Once the theme is ready to go live, disable theme test and activate the theme on the Themes page.', 'controlled-chaos-plugin' ); ?></li>
+            <li><?php _e( 'Select a theme to preview live on the site from the select box below (lists all installed themes).', 'burcon-outfitters' ); ?></li>
+            <li><?php _e( 'Enable theme test', 'burcon-outfitters' ); ?></li>
+            <li><?php _e( 'Once the theme is ready to go live, disable theme test and activate the theme on the Themes page.', 'burcon-outfitters' ); ?></li>
         </ol>
-   	    <p><?php _e( 'Additionally you may add "?theme=xxx" to a URL, where xxx is the slug of the theme you want to test.', 'controlled-chaos-plugin' ); ?></p>
+   	    <p><?php _e( 'Additionally you may add "?theme=xxx" to a URL, where xxx is the slug of the theme you want to test.', 'burcon-outfitters' ); ?></p>
         <?php themedrive_switcher(); ?>
-        <h2><?php _e( 'User Role', 'controlled-chaos-plugin' ); ?></h2>
-        <p><?php _e( 'Specify the level of users to have access to the selected theme preview.', 'controlled-chaos-plugin' ); ?></p>
-        <p><?php _e( 'By default it is set to 10 (admin only). Level 7 are editors, level 4 are authors and level 1 are contributors.', 'controlled-chaos-plugin' ); ?></p>
-        <p><?php _e( 'The access level is ignored for accessing the site with ?theme=xxx paramaeter.', 'controlled-chaos-plugin' ); ?></p>
-        <p><input style="border-width: inherit; border-style: inherit; border-color: inherit; width: 30px;" name="access_level" id="access_level" value="<?php echo esc_attr( $access_level ); ?>" /> <label for="access_level"><?php _e( 'Access level', 'controlled-chaos-plugin' ); ?></label></p>
+        <h2><?php _e( 'User Role', 'burcon-outfitters' ); ?></h2>
+        <p><?php _e( 'Specify the level of users to have access to the selected theme preview.', 'burcon-outfitters' ); ?></p>
+        <p><?php _e( 'By default it is set to 10 (admin only). Level 7 are editors, level 4 are authors and level 1 are contributors.', 'burcon-outfitters' ); ?></p>
+        <p><?php _e( 'The access level is ignored for accessing the site with ?theme=xxx paramaeter.', 'burcon-outfitters' ); ?></p>
+        <p><input style="border-width: inherit; border-style: inherit; border-color: inherit; width: 30px;" name="access_level" id="access_level" value="<?php echo esc_attr( $access_level ); ?>" /> <label for="access_level"><?php _e( 'Access level', 'burcon-outfitters' ); ?></label></p>
         <p class="submit">
             <input type="submit" name="button" value="Disable Theme Drive" class="button-primary" />
             <input type="submit" name="button" value="Enable Theme Drive" class="button-primary" />

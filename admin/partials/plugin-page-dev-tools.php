@@ -2,7 +2,7 @@
 /**
  * About page media options output.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials
  *
  * @since      1.0.0
@@ -15,14 +15,14 @@ namespace CC_Plugin\Admin\Partials;
 if ( ! defined( 'WPINC' ) ) {
 	die;
 } ?>
-<h2><?php _e( 'Website Development Tools', 'controlled-chaos-plugin' ); ?></h2>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<h3><?php _e( 'Custom Post Type', 'controlled-chaos-plugin' ); ?></h3>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<h3><?php _e( 'Custom Taxonomy', 'controlled-chaos-plugin' ); ?></h3>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<h3><?php _e( 'Custom Blocks', 'controlled-chaos-plugin' ); ?></h3>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
+<h2><?php _e( 'Website Development Tools', 'burcon-outfitters' ); ?></h2>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<h3><?php _e( 'Custom Post Type', 'burcon-outfitters' ); ?></h3>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<h3><?php _e( 'Custom Taxonomy', 'burcon-outfitters' ); ?></h3>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<h3><?php _e( 'Custom Blocks', 'burcon-outfitters' ); ?></h3>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>

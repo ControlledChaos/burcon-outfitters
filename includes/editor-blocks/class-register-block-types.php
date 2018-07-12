@@ -2,7 +2,7 @@
 /**
  * Register custom editor blocks.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Editor_Blocks
  *
  * @since      1.0.0
@@ -80,7 +80,7 @@ class Register_Blocks {
 
 		// Sample block scripts.
 		wp_enqueue_script(
-			'ccp-sample-block-script', // Handle.
+			'burcon-sample-block-script', // Handle.
 			plugins_url( 'assets/js/sample-block.min.js', __FILE__ ), // Block.js: We register the block here.
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ], // Dependencies, defined above.
 			filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/sample-block.min.js' ) // filemtime — Gets file modification time.
@@ -88,7 +88,7 @@ class Register_Blocks {
 
 		// Sample block styles.
 		wp_enqueue_style(
-			'ccp-sample-block', // Handle.
+			'burcon-sample-block', // Handle.
 			plugins_url( 'assets/css/sample-block.min.css', __FILE__ ), // Block editor CSS.
 			[ 'wp-edit-blocks' ], // Dependency to include the CSS after it.
 			filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/sample-block.min.css' ) // filemtime — Gets file modification time.
@@ -106,7 +106,7 @@ class Register_Blocks {
 	public function sample_block_frontend_assets() {
 
 		wp_enqueue_style(
-			'ccp-sample-block',
+			'burcon-sample-block',
 			plugins_url( 'assets/css/sample-block.css', __FILE__ ),
 			[ 'wp-blocks' ],
 			filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/sample-block.css' )
@@ -123,11 +123,11 @@ class Register_Blocks {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_register_blocks() {
+function burcon_register_blocks() {
 
 	return Register_Blocks::instance();
 
 }
 
 // Run an instance of the class.
-ccp_register_blocks();
+burcon_register_blocks();

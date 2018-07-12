@@ -2,7 +2,7 @@
 /**
  * Post types and taxonomies.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -92,11 +92,11 @@ class Post_Types_Taxes {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_types_taxes() {
+function burcon_types_taxes() {
 
 	return Post_Types_Taxes::instance();
 
 }
 
 // Run an instance of the class.
-ccp_types_taxes();
+burcon_types_taxes();

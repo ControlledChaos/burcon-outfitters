@@ -2,7 +2,7 @@
 /**
  * Minify HTML source code.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes
  *
  * @since      1.0.0

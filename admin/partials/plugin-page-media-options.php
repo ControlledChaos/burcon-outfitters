@@ -2,7 +2,7 @@
 /**
  * About page media options output.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials
  *
  * @since      1.0.0
@@ -15,11 +15,11 @@ namespace CC_Plugin\Admin\Partials;
 if ( ! defined( 'WPINC' ) ) {
 	die;
 } ?>
-<h2><?php _e( 'Media and Upload Options', 'controlled-chaos-plugin' ); ?></h2>
-<h3><?php _e( 'Image Sizes', 'controlled-chaos-plugin' ); ?></h3>
+<h2><?php _e( 'Media and Upload Options', 'burcon-outfitters' ); ?></h2>
+<h3><?php _e( 'Image Sizes', 'burcon-outfitters' ); ?></h3>
 <ul>
-<li><?php _e( 'Add option to hard crop the medium and/or large image sizes', 'controlled-chaos-plugin' ); ?></li>
-<li><?php _e( 'Add option to allow SVG uploads to the Media Library', 'controlled-chaos-plugin' ); ?></li>
+<li><?php _e( 'Add option to hard crop the medium and/or large image sizes', 'burcon-outfitters' ); ?></li>
+<li><?php _e( 'Add option to allow SVG uploads to the Media Library', 'burcon-outfitters' ); ?></li>
 </ul>
-<h3><?php _e( 'Fancybox Presentation', 'controlled-chaos-plugin' ); ?></h3>
-<h3><?php _e( 'SVG Uploads', 'controlled-chaos-plugin' ); ?></h3>
+<h3><?php _e( 'Fancybox Presentation', 'burcon-outfitters' ); ?></h3>
+<h3><?php _e( 'SVG Uploads', 'burcon-outfitters' ); ?></h3>

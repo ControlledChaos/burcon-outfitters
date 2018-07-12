@@ -1,25 +1,25 @@
 <?php
 /**
- * Controlled Chaos starter plugin
+ * Burcon Outfitters starter plugin
  *
  * Change this header information to suit your needs.
  *
- * @package     Controlled_Chaos_Plugin
+ * @package     Burcon_Outfitters
  * @version     1.0.0
  * @author      Greg Sweet <greg@ccdzine.com>
  * @copyright   Copyright © 2018, Greg Sweet
- * @link        https://github.com/ControlledChaos/controlled-chaos-plugin
+ * @link        https://github.com/ControlledChaos/burcon-outfitters
  * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
- * Plugin Name: Controlled Chaos Plugin
- * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-plugin
+ * Plugin Name: Burcon Outfitters Plugin
+ * Plugin URI:  https://github.com/ControlledChaos/burcon-outfitters
  * Description: A WordPress starter/boilerplate for site-specific plugins.
  * Version:     1.0.0
- * Author:      Controlled Chaos Design
+ * Author:      Burcon Outfitters Design
  * Author URI:  http://ccdzine.com/
  * License:     GPL-3.0+
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Text Domain: controlled-chaos-plugin
+ * Text Domain: burcon-outfitters
  * Domain Path: /languages
  */
 
@@ -35,8 +35,8 @@ if ( ! defined( 'WPINC' ) ) {
  * @since  1.0.0
  * @return string Returns the latest plugin version.
  */
-if ( ! defined( 'CCP_VERSION' ) ) {
-	define( 'CCP_VERSION', '1.0.0' );
+if ( ! defined( 'BURCON_VERSION' ) ) {
+	define( 'BURCON_VERSION', '1.0.0' );
 }
 
 /**
@@ -45,14 +45,14 @@ if ( ! defined( 'CCP_VERSION' ) ) {
  * This URL slug is used for various plugin admin & settings pages.
  *
  * The prefix will change in your search & replace in renaming the plugin.
- * Change the second part of the define(), here as 'controlled-chaos-plugin',
+ * Change the second part of the define(), here as 'burcon-outfitters',
  * to your preferred page slug.
  *
  * @since  1.0.0
  * @return string Returns the URL slug of the admin pages.
  */
-if ( ! defined( 'CCP_ADMIN_SLUG' ) ) {
-	define( 'CCP_ADMIN_SLUG', 'controlled-chaos-plugin' );
+if ( ! defined( 'BURCON_ADMIN_SLUG' ) ) {
+	define( 'BURCON_ADMIN_SLUG', 'burcon-outfitters' );
 }
 
 /**
@@ -63,9 +63,9 @@ if ( ! defined( 'CCP_ADMIN_SLUG' ) ) {
  * @since  1.0.0
  * @return string Returns the URL of the image.
  */
-if ( ! defined( 'CCP_DEFAULT_META_IMAGE' ) ) {
+if ( ! defined( 'BURCON_DEFAULT_META_IMAGE' ) ) {
 	define(
-		'CCP_DEFAULT_META_IMAGE',
+		'BURCON_DEFAULT_META_IMAGE',
 		plugins_url( 'frontend/assets/images/default-meta-image.jpg', __FILE__ )
 	);
 }
@@ -79,7 +79,7 @@ if ( ! defined( 'CCP_DEFAULT_META_IMAGE' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Plugin {
+class Burcon_Outfitters {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -144,16 +144,16 @@ class Controlled_Chaos_Plugin {
  *
  * @since  1.0.0
  * @access public
- * @return object Returns the instance of the `Controlled_Chaos_Plugin` class.
+ * @return object Returns the instance of the `Burcon_Outfitters` class.
  */
-function ccp_plugin() {
+function burcon_plugin() {
 
-	return Controlled_Chaos_Plugin::instance();
+	return Burcon_Outfitters::instance();
 
 }
 
 // Begin plugin functionality.
-ccp_plugin();
+burcon_plugin();
 
 /**
  * Register the activaction & deactivation hooks.
@@ -175,7 +175,7 @@ register_deactivation_hook( __FILE__, '\deactivate_controlled_chaos' );
 function activate_controlled_chaos() {
 
 	// Run the activation class.
-	ccp_activate();
+	burcon_activate();
 
 }
 
@@ -189,7 +189,7 @@ function activate_controlled_chaos() {
 function deactivate_controlled_chaos() {
 
 	// Run the deactivation class.
-	ccp_deactivate();
+	burcon_deactivate();
 
 }
 
@@ -215,9 +215,9 @@ function controlled_chaos_about_link( $links ) {
 	// Create new settings link array as a variable.
 	$about_page = [
 		sprintf(
-			'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-page-link">%2s</a>',
-			admin_url( 'plugins.php?page=' . CCP_ADMIN_SLUG . '-page' ),
-			esc_attr( 'Documentation', 'controlled-chaos-plugin' )
+			'<a href="%1s" class="' . BURCON_ADMIN_SLUG . '-page-link">%2s</a>',
+			admin_url( 'plugins.php?page=' . BURCON_ADMIN_SLUG . '-page' ),
+			esc_attr( 'Documentation', 'burcon-outfitters' )
 		),
 	];
 
@@ -246,22 +246,22 @@ function controlled_chaos_settings_links( $links, $file ) {
 
 		// Add links to settings pages.
 		$links[] = sprintf(
-			'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-settings-link">%2s</a>',
-			admin_url( 'options-general.php?page=' . CCP_ADMIN_SLUG . '-settings' ),
-			esc_attr( 'Site Settings', 'controlled-chaos-plugin' )
+			'<a href="%1s" class="' . BURCON_ADMIN_SLUG . '-settings-link">%2s</a>',
+			admin_url( 'options-general.php?page=' . BURCON_ADMIN_SLUG . '-settings' ),
+			esc_attr( 'Site Settings', 'burcon-outfitters' )
 		);
 		$links[] = sprintf(
-			'<a href="%1s" class="' . CCP_ADMIN_SLUG . '-scripts-link">%2s</a>',
-			admin_url( 'options-general.php?page=' . CCP_ADMIN_SLUG . '-scripts' ),
-			esc_attr( 'Script Options', 'controlled-chaos-plugin' )
+			'<a href="%1s" class="' . BURCON_ADMIN_SLUG . '-scripts-link">%2s</a>',
+			admin_url( 'options-general.php?page=' . BURCON_ADMIN_SLUG . '-scripts' ),
+			esc_attr( 'Script Options', 'burcon-outfitters' )
 		);
 
 		// Add a placeholder for an upgrade link.
 		$links[] = sprintf(
-			'<a href="%1s" title="%2s" class="' . CCP_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
+			'<a href="%1s" title="%2s" class="' . BURCON_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
 			''/* Add upgrade URL here */,
-			__( 'Upgrade not available', 'controlled-chaos-plugin' ),
-			esc_attr( 'Upgrade', 'controlled-chaos-plugin' )
+			__( 'Upgrade not available', 'burcon-outfitters' ),
+			esc_attr( 'Upgrade', 'burcon-outfitters' )
 		);
 
 	}

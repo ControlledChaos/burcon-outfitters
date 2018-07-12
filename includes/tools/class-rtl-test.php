@@ -7,7 +7,7 @@
  *
  * This file must not be namespaced.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -91,7 +91,7 @@ class Controlled_Chaos_RTL_Test {
 		$wp_admin_bar->add_menu(
 			[
 				'id'    => 'RTL',
-		 		'title' => sprintf( __( 'Switch to %s', 'controlled-chaos-plugin' ), strtoupper( $direction ) ),
+		 		'title' => sprintf( __( 'Switch to %s', 'burcon-outfitters' ), strtoupper( $direction ) ),
 		 		'href'  => add_query_arg( [ 'd' => $direction ] )
 			]
 		);
@@ -144,11 +144,11 @@ class Controlled_Chaos_RTL_Test {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_rtl_test() {
+function burcon_rtl_test() {
 
 	return Controlled_Chaos_RTL_Test::instance();
 
 }
 
 // Run an instance of the class.
-ccp_rtl_test();
+burcon_rtl_test();

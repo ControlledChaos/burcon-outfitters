@@ -2,7 +2,7 @@
 /**
  * Welcome panel functionality.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Dashboard
  *
  * @since      1.0.0
@@ -58,7 +58,7 @@ class Welcome {
     public function __construct() {
 
 		// Remove the welcome panel dismiss button.
-		$dismiss = get_option( 'ccp_remove_welcome_dismiss' );
+		$dismiss = get_option( 'burcon_remove_welcome_dismiss' );
 		if ( $dismiss ) {
 			add_action( 'admin_head', [ $this, 'dismiss' ] );
 		}
@@ -67,7 +67,7 @@ class Welcome {
 		add_action( 'widgets_init', [ $this, 'widget_areas' ], 25 );
 
 		// Use the custom Welcome panel if option selected.
-		$welcome = get_option( 'ccp_custom_welcome' );
+		$welcome = get_option( 'burcon_custom_welcome' );
 		if ( $welcome ) {
 			remove_action( 'welcome_panel', 'wp_welcome_panel' );
 			add_action( 'welcome_panel', [ $this, 'welcome_panel' ], 25 );
@@ -113,9 +113,9 @@ class Welcome {
 	public function widget_areas() {
 
 		register_sidebar( [
-			'name'          => __( 'Welcome Panel - First Area', 'controlled-chaos-plugin' ),
-			'id'            => 'ccp_welcome_widget_first',
-			'description'   => __( '', 'controlled-chaos-plugin' ),
+			'name'          => __( 'Welcome Panel - First Area', 'burcon-outfitters' ),
+			'id'            => 'burcon_welcome_widget_first',
+			'description'   => __( '', 'burcon-outfitters' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
@@ -123,9 +123,9 @@ class Welcome {
 		] );
 
 		register_sidebar( [
-			'name'          => __( 'Welcome Panel - Second Area', 'controlled-chaos-plugin' ),
-			'id'            => 'ccp_welcome_widget_second',
-			'description'   => __( '', 'controlled-chaos-plugin' ),
+			'name'          => __( 'Welcome Panel - Second Area', 'burcon-outfitters' ),
+			'id'            => 'burcon_welcome_widget_second',
+			'description'   => __( '', 'burcon-outfitters' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
@@ -133,9 +133,9 @@ class Welcome {
 		] );
 
 		register_sidebar( [
-			'name'          => __( 'Welcome Panel - Third Area', 'controlled-chaos-plugin' ),
-			'id'            => 'ccp_welcome_widget_last',
-			'description'   => __( '', 'controlled-chaos-plugin' ),
+			'name'          => __( 'Welcome Panel - Third Area', 'burcon-outfitters' ),
+			'id'            => 'burcon_welcome_widget_last',
+			'description'   => __( '', 'burcon-outfitters' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3>',
@@ -166,11 +166,11 @@ class Welcome {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_welcome() {
+function burcon_welcome() {
 
 	return Welcome::instance();
 
 }
 
 // Run an instance of the class.
-ccp_welcome();
+burcon_welcome();

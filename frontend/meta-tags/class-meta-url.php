@@ -4,7 +4,7 @@
  *
  * Conditionally gets the URL of the current page.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend\Meta_Tags
  *
  * @since      1.0.0
@@ -63,7 +63,7 @@ class Meta_URL {
 		add_action( 'template_redirect', [ $this, 'page' ] );
 
 		// Add the URL to the meta tags.
-		add_action( 'ccp_meta_url_tag', [ $this, 'content' ] );
+		add_action( 'burcon_meta_url_tag', [ $this, 'content' ] );
 
 	}
 
@@ -198,11 +198,11 @@ class Meta_URL {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_meta_url() {
+function burcon_meta_url() {
 
 	return Meta_URL::instance();
 
 }
 
 // Run an instance of the class.
-ccp_meta_url();
+burcon_meta_url();

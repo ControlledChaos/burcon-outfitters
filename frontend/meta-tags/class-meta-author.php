@@ -2,7 +2,7 @@
 /**
  * Author meta tag.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend\Meta_Tags
  *
  * @since      1.0.0
@@ -58,7 +58,7 @@ class Meta_Author {
 	public function __construct() {
 
 		// Add author to the meta tag.
-		add_action( 'ccp_meta_author_tag', [ $this, 'author' ] );
+		add_action( 'burcon_meta_author_tag', [ $this, 'author' ] );
 
 	}
 
@@ -93,7 +93,7 @@ class Meta_Author {
 		}
 
 		// Apply a filter for conditional modification.
-		$author_tag = apply_filters( 'ccp_author_name', $author );
+		$author_tag = apply_filters( 'burcon_author_name', $author );
 
 		// Echo the author display name in the meta tag.
 		echo $author_tag;
@@ -109,11 +109,11 @@ class Meta_Author {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_meta_author() {
+function burcon_meta_author() {
 
 	return Meta_Author::instance();
 
 }
 
 // Run an instance of the class.
-ccp_meta_author();
+burcon_meta_author();

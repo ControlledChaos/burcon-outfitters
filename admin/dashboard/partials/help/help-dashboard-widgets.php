@@ -2,7 +2,7 @@
 /**
  * Content for the Dashboard Widgets help tab.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials\Help
  *
  * @since      1.0.0
@@ -15,4 +15,4 @@ namespace CC_Plugin\Admin\Dashboard\Partials\Help;
 if ( ! defined( 'WPINC' ) ) {
 	die;
 } ?>
-<h3><?php _e( 'Dashboard Widgets', 'controlled-chaos-plugin' ); ?></h3>
+<h3><?php _e( 'Dashboard Widgets', 'burcon-outfitters' ); ?></h3>

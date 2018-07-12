@@ -2,7 +2,7 @@
 /**
  * Settings fields for script loading and more.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -61,7 +61,7 @@ class Settings_Fields_Scripts {
 		add_action( 'admin_init', [ $this, 'settings' ] );
 
 		// Include jQuery Migrate.
-		$migrate = get_option( 'ccp_jquery_migrate' );
+		$migrate = get_option( 'burcon_jquery_migrate' );
 		if ( ! $migrate ) {
 			add_action( 'wp_default_scripts', [ $this, 'include_jquery_migrate' ] );
 		}
@@ -80,111 +80,111 @@ class Settings_Fields_Scripts {
 		/**
 		 * Generl script options.
 		 */
-		add_settings_section( 'ccp-scripts-general', __( 'General Options', 'controlled-chaos-plugin' ), [ $this, 'scripts_general_section_callback' ], 'ccp-scripts-general' );
+		add_settings_section( 'burcon-scripts-general', __( 'General Options', 'burcon-outfitters' ), [ $this, 'scripts_general_section_callback' ], 'burcon-scripts-general' );
 
 		// Inline scripts.
-		add_settings_field( 'ccp_inline_scripts', __( 'Inline Scripts', 'controlled-chaos-plugin' ), [ $this, 'ccp_inline_scripts_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Add script contents to footer', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_inline_scripts', __( 'Inline Scripts', 'burcon-outfitters' ), [ $this, 'burcon_inline_scripts_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Add script contents to footer', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_inline_scripts'
+			'burcon-scripts-general',
+			'burcon_inline_scripts'
 		);
 
 		// Inline styles.
-		add_settings_field( 'ccp_inline_styles', __( 'Inline Styles', 'controlled-chaos-plugin' ), [ $this, 'ccp_inline_styles_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Add script-related CSS contents to head', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_inline_styles', __( 'Inline Styles', 'burcon-outfitters' ), [ $this, 'burcon_inline_styles_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Add script-related CSS contents to head', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_inline_styles'
+			'burcon-scripts-general',
+			'burcon_inline_styles'
 		);
 
 		// Inline jQuery.
-		add_settings_field( 'ccp_inline_jquery', __( 'Inline jQuery', 'controlled-chaos-plugin' ), [ $this, 'ccp_inline_jquery_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Deregister jQuery and add its contents to footer', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_inline_jquery', __( 'Inline jQuery', 'burcon-outfitters' ), [ $this, 'burcon_inline_jquery_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Deregister jQuery and add its contents to footer', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_inline_jquery'
+			'burcon-scripts-general',
+			'burcon_inline_jquery'
 		);
 
 		// Include jQuery Migrate.
-		add_settings_field( 'ccp_jquery_migrate', __( 'jQuery Migrate', 'controlled-chaos-plugin' ), [ $this, 'ccp_jquery_migrate_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Use jQuery Migrate for backwards compatibility', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_jquery_migrate', __( 'jQuery Migrate', 'burcon-outfitters' ), [ $this, 'burcon_jquery_migrate_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Use jQuery Migrate for backwards compatibility', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_jquery_migrate'
+			'burcon-scripts-general',
+			'burcon_jquery_migrate'
 		);
 
 		// Remove emoji script.
-		add_settings_field( 'ccp_remove_emoji_script', __( 'Emoji Script', 'controlled-chaos-plugin' ), [ $this, 'remove_emoji_script_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Remove emoji script from <head>', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_remove_emoji_script', __( 'Emoji Script', 'burcon-outfitters' ), [ $this, 'remove_emoji_script_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Remove emoji script from <head>', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_remove_emoji_script'
+			'burcon-scripts-general',
+			'burcon_remove_emoji_script'
 		);
 
 		// Remove WordPress version appended to script links.
-		add_settings_field( 'ccp_remove_script_version', __( 'Script Versions', 'controlled-chaos-plugin' ), [ $this, 'remove_script_version_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Remove WordPress version from script and stylesheet links in <head>', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_remove_script_version', __( 'Script Versions', 'burcon-outfitters' ), [ $this, 'remove_script_version_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Remove WordPress version from script and stylesheet links in <head>', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_remove_script_version'
+			'burcon-scripts-general',
+			'burcon_remove_script_version'
 		);
 
 		// Minify HTML.
-		add_settings_field( 'ccp_html_minify', __( 'Minify HTML', 'controlled-chaos-plugin' ), [ $this, 'html_minify_callback' ], 'ccp-scripts-general', 'ccp-scripts-general', [ esc_html__( 'Minify HTML source code to increase load speed', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_html_minify', __( 'Minify HTML', 'burcon-outfitters' ), [ $this, 'html_minify_callback' ], 'burcon-scripts-general', 'burcon-scripts-general', [ esc_html__( 'Minify HTML source code to increase load speed', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-general',
-			'ccp_html_minify'
+			'burcon-scripts-general',
+			'burcon_html_minify'
 		);
 
 		/**
 		 * Use included vendor scripts & options.
 		 */
-		add_settings_section( 'ccp-scripts-vendor', __( 'Included Vendor Scripts', 'controlled-chaos-plugin' ), [ $this, 'scripts_vendor_section_callback' ], 'ccp-scripts-vendor' );
+		add_settings_section( 'burcon-scripts-vendor', __( 'Included Vendor Scripts', 'burcon-outfitters' ), [ $this, 'scripts_vendor_section_callback' ], 'burcon-scripts-vendor' );
 
 		// Use Slick.
-		add_settings_field( 'ccp_enqueue_slick', __( 'Slick', 'controlled-chaos-plugin' ), [ $this, 'enqueue_slick_callback' ], 'ccp-scripts-vendor', 'ccp-scripts-vendor', [ esc_html__( 'Use Slick script and stylesheets', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_enqueue_slick', __( 'Slick', 'burcon-outfitters' ), [ $this, 'enqueue_slick_callback' ], 'burcon-scripts-vendor', 'burcon-scripts-vendor', [ esc_html__( 'Use Slick script and stylesheets', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-vendor',
-			'ccp_enqueue_slick'
+			'burcon-scripts-vendor',
+			'burcon_enqueue_slick'
 		);
 
 		// Use Tabslet.
-		add_settings_field( 'ccp_enqueue_tabslet', __( 'Tabslet', 'controlled-chaos-plugin' ), [ $this, 'enqueue_tabslet_callback' ], 'ccp-scripts-vendor', 'ccp-scripts-vendor', [ esc_html__( 'Use Tabslet script', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_enqueue_tabslet', __( 'Tabslet', 'burcon-outfitters' ), [ $this, 'enqueue_tabslet_callback' ], 'burcon-scripts-vendor', 'burcon-scripts-vendor', [ esc_html__( 'Use Tabslet script', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-vendor',
-			'ccp_enqueue_tabslet'
+			'burcon-scripts-vendor',
+			'burcon_enqueue_tabslet'
 		);
 
 		// Use Sticky-kit.
-		add_settings_field( 'ccp_enqueue_stickykit', __( 'Sticky-kit', 'controlled-chaos-plugin' ), [ $this, 'enqueue_stickykit_callback' ], 'ccp-scripts-vendor', 'ccp-scripts-vendor', [ esc_html__( 'Use Sticky-kit script', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_enqueue_stickykit', __( 'Sticky-kit', 'burcon-outfitters' ), [ $this, 'enqueue_stickykit_callback' ], 'burcon-scripts-vendor', 'burcon-scripts-vendor', [ esc_html__( 'Use Sticky-kit script', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-vendor',
-			'ccp_enqueue_stickykit'
+			'burcon-scripts-vendor',
+			'burcon_enqueue_stickykit'
 		);
 
 		// Use Tooltipster.
-		add_settings_field( 'ccp_enqueue_tooltipster', __( 'Tooltipster', 'controlled-chaos-plugin' ), [ $this, 'enqueue_tooltipster_callback' ], 'ccp-scripts-vendor', 'ccp-scripts-vendor', [ esc_html__( 'Use Tooltipster script and stylesheet', 'controlled-chaos-plugin' ) ] );
+		add_settings_field( 'burcon_enqueue_tooltipster', __( 'Tooltipster', 'burcon-outfitters' ), [ $this, 'enqueue_tooltipster_callback' ], 'burcon-scripts-vendor', 'burcon-scripts-vendor', [ esc_html__( 'Use Tooltipster script and stylesheet', 'burcon-outfitters' ) ] );
 
 		register_setting(
-			'ccp-scripts-vendor',
-			'ccp_enqueue_tooltipster'
+			'burcon-scripts-vendor',
+			'burcon_enqueue_tooltipster'
 		);
 
 		// Site Settings section.
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
-			add_settings_section( 'ccp-registered-fields-activate', __( 'Registered Fields Activation', 'controlled-chaos-plugin' ), [ $this, 'registered_fields_activate' ], 'ccp-registered-fields-activate' );
+			add_settings_section( 'burcon-registered-fields-activate', __( 'Registered Fields Activation', 'burcon-outfitters' ), [ $this, 'registered_fields_activate' ], 'burcon-registered-fields-activate' );
 
-			add_settings_field( 'ccp_acf_activate_settings_page', __( 'Site Settings Page', 'controlled-chaos-plugin' ), [ $this, 'registered_fields_page_callback' ], 'ccp-registered-fields-activate', 'ccp-registered-fields-activate', [ __( 'Deactive the field group for the "Site Settings" options page.', 'controlled-chaos-plugin' ) ] );
+			add_settings_field( 'burcon_acf_activate_settings_page', __( 'Site Settings Page', 'burcon-outfitters' ), [ $this, 'registered_fields_page_callback' ], 'burcon-registered-fields-activate', 'burcon-registered-fields-activate', [ __( 'Deactive the field group for the "Site Settings" options page.', 'burcon-outfitters' ) ] );
 
 			register_setting(
-				'ccp-registered-fields-activate',
-				'ccp_acf_activate_settings_page'
+				'burcon-registered-fields-activate',
+				'burcon_acf_activate_settings_page'
 			);
 
 		}
@@ -213,13 +213,13 @@ class Settings_Fields_Scripts {
 	 * @access public
 	 * @return string
 	 */
-	public function ccp_inline_jquery_callback( $args ) {
+	public function burcon_inline_jquery_callback( $args ) {
 
-		$option = get_option( 'ccp_inline_jquery' );
+		$option = get_option( 'burcon_inline_jquery' );
 
-		$html = '<p><input type="checkbox" id="ccp_inline_jquery" name="ccp_inline_jquery" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_inline_jquery" name="burcon_inline_jquery" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_inline_jquery"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="burcon_inline_jquery"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -232,13 +232,13 @@ class Settings_Fields_Scripts {
 	 * @access public
 	 * @return string
 	 */
-	public function ccp_jquery_migrate_callback( $args ) {
+	public function burcon_jquery_migrate_callback( $args ) {
 
-		$option = get_option( 'ccp_jquery_migrate' );
+		$option = get_option( 'burcon_jquery_migrate' );
 
-		$html = '<p><input type="checkbox" id="ccp_jquery_migrate" name="ccp_jquery_migrate" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_jquery_migrate" name="burcon_jquery_migrate" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_jquery_migrate"> '  . $args[0] . '</label><br />';
+		$html .= '<label for="burcon_jquery_migrate"> '  . $args[0] . '</label><br />';
 
 		$html .= '<small><em>Some outdated plugins and themes may be dependent on an old version of jQuery</em></small></p>';
 
@@ -253,13 +253,13 @@ class Settings_Fields_Scripts {
 	 * @access public
 	 * @return string
 	 */
-	public function ccp_inline_scripts_callback( $args ) {
+	public function burcon_inline_scripts_callback( $args ) {
 
-		$option = get_option( 'ccp_inline_scripts' );
+		$option = get_option( 'burcon_inline_scripts' );
 
-		$html = '<p><input type="checkbox" id="ccp_inline_scripts" name="ccp_inline_scripts" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_inline_scripts" name="burcon_inline_scripts" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_inline_scripts"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="burcon_inline_scripts"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -272,13 +272,13 @@ class Settings_Fields_Scripts {
 	 * @access public
 	 * @return string
 	 */
-	public function ccp_inline_styles_callback( $args ) {
+	public function burcon_inline_styles_callback( $args ) {
 
-		$option = get_option( 'ccp_inline_styles' );
+		$option = get_option( 'burcon_inline_styles' );
 
-		$html = '<p><input type="checkbox" id="ccp_inline_styles" name="ccp_inline_styles" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_inline_styles" name="burcon_inline_styles" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_inline_styles"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="burcon_inline_styles"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -293,11 +293,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function remove_emoji_script_callback( $args ) {
 
-		$option = get_option( 'ccp_remove_emoji_script' );
+		$option = get_option( 'burcon_remove_emoji_script' );
 
-		$html = '<p><input type="checkbox" id="ccp_remove_emoji_script" name="ccp_remove_emoji_script" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_remove_emoji_script" name="burcon_remove_emoji_script" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_remove_emoji_script"> '  . $args[0] . '</label><br />';
+		$html .= '<label for="burcon_remove_emoji_script"> '  . $args[0] . '</label><br />';
 
 		$html .= '<small><em>Emojis will still work in modern browsers</em></small></p>';
 
@@ -314,11 +314,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function remove_script_version_callback( $args ) {
 
-		$option = get_option( 'ccp_remove_script_version' );
+		$option = get_option( 'burcon_remove_script_version' );
 
-		$html = '<p><input type="checkbox" id="ccp_remove_script_version" name="ccp_remove_script_version" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_remove_script_version" name="burcon_remove_script_version" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_remove_script_version"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="burcon_remove_script_version"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -333,11 +333,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function html_minify_callback( $args ) {
 
-		$option = get_option( 'ccp_html_minify' );
+		$option = get_option( 'burcon_html_minify' );
 
-		$html = '<p><input type="checkbox" id="ccp_html_minify" name="ccp_html_minify" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_html_minify" name="burcon_html_minify" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_html_minify"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="burcon_html_minify"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
@@ -367,11 +367,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function enqueue_slick_callback( $args ) {
 
-		$option = get_option( 'ccp_enqueue_slick' );
+		$option = get_option( 'burcon_enqueue_slick' );
 
-		$html = '<p><input type="checkbox" id="ccp_enqueue_slick" name="ccp_enqueue_slick" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_enqueue_slick" name="burcon_enqueue_slick" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_enqueue_slick"> '  . $args[0] . '</label>';
+		$html .= '<label for="burcon_enqueue_slick"> '  . $args[0] . '</label>';
 
 		echo $html;
 
@@ -386,11 +386,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function enqueue_tabslet_callback( $args ) {
 
-		$option = get_option( 'ccp_enqueue_tabslet' );
+		$option = get_option( 'burcon_enqueue_tabslet' );
 
-		$html = '<p><input type="checkbox" id="ccp_enqueue_tabslet" name="ccp_enqueue_tabslet" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_enqueue_tabslet" name="burcon_enqueue_tabslet" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_enqueue_tabslet"> '  . $args[0] . '</label>';
+		$html .= '<label for="burcon_enqueue_tabslet"> '  . $args[0] . '</label>';
 
 		echo $html;
 
@@ -405,11 +405,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function enqueue_stickykit_callback( $args ) {
 
-		$option = get_option( 'ccp_enqueue_stickykit' );
+		$option = get_option( 'burcon_enqueue_stickykit' );
 
-		$html = '<p><input type="checkbox" id="ccp_enqueue_stickykit" name="ccp_enqueue_stickykit" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_enqueue_stickykit" name="burcon_enqueue_stickykit" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_enqueue_stickykit"> '  . $args[0] . '</label>';
+		$html .= '<label for="burcon_enqueue_stickykit"> '  . $args[0] . '</label>';
 
 		echo $html;
 
@@ -424,11 +424,11 @@ class Settings_Fields_Scripts {
 	 */
 	public function enqueue_tooltipster_callback( $args ) {
 
-		$option = get_option( 'ccp_enqueue_tooltipster' );
+		$option = get_option( 'burcon_enqueue_tooltipster' );
 
-		$html = '<p><input type="checkbox" id="ccp_enqueue_tooltipster" name="ccp_enqueue_tooltipster" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="burcon_enqueue_tooltipster" name="burcon_enqueue_tooltipster" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="ccp_enqueue_tooltipster"> '  . $args[0] . '</label>';
+		$html .= '<label for="burcon_enqueue_tooltipster"> '  . $args[0] . '</label>';
 
 		echo $html;
 
@@ -445,7 +445,7 @@ class Settings_Fields_Scripts {
 
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
-			echo sprintf( '<p>%1s</p>', esc_html( 'The Controlled Chaos plugin registers custom fields for Advanced Custom Fields Pro that can be imported for editing. These built-in field goups must be deactivated for the imported field groups to take effect.', 'controlled-chaos-plugin' ) );
+			echo sprintf( '<p>%1s</p>', esc_html( 'The Burcon Outfitters plugin registers custom fields for Advanced Custom Fields Pro that can be imported for editing. These built-in field goups must be deactivated for the imported field groups to take effect.', 'burcon-outfitters' ) );
 
 		}
 
@@ -462,9 +462,9 @@ class Settings_Fields_Scripts {
 
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
-			$html = '<p><input type="checkbox" id="ccp_acf_activate_settings_page" name="ccp_acf_activate_settings_page" value="1" ' . checked( 1, get_option( 'ccp_acf_activate_settings_page' ), false ) . '/>';
+			$html = '<p><input type="checkbox" id="burcon_acf_activate_settings_page" name="burcon_acf_activate_settings_page" value="1" ' . checked( 1, get_option( 'burcon_acf_activate_settings_page' ), false ) . '/>';
 
-			$html .= '<label for="ccp_acf_activate_settings_page"> '  . $args[0] . '</label></p>';
+			$html .= '<label for="burcon_acf_activate_settings_page"> '  . $args[0] . '</label></p>';
 
 			echo $html;
 
@@ -498,11 +498,11 @@ class Settings_Fields_Scripts {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings_fields_scripts() {
+function burcon_settings_fields_scripts() {
 
 	return Settings_Fields_Scripts::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings_fields_scripts();
+burcon_settings_fields_scripts();

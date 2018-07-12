@@ -4,7 +4,7 @@
  *
  * Conditionally gets information or content from the current page.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend\Meta_Tags
  *
  * @since      1.0.0
@@ -60,7 +60,7 @@ class Meta_Description {
 	public function __construct() {
 
 		// Add description to the meta tag.
-		add_action( 'ccp_meta_description_tag', [ $this, 'description' ] );
+		add_action( 'burcon_meta_description_tag', [ $this, 'description' ] );
 
 	}
 
@@ -101,7 +101,7 @@ class Meta_Description {
 			 *
 			 * An additional parameter of 'option' must be included to target the options page.
 			 */
-			$acf_blog_desc = get_field( 'ccp_meta_blog_description', 'option' );
+			$acf_blog_desc = get_field( 'burcon_meta_blog_description', 'option' );
 
 			// If the ACF field is empty use the tagline.
 			if ( $acf_blog_desc ) {
@@ -113,7 +113,7 @@ class Meta_Description {
 		} else {
 
 			// Check for content in the blog description standard field.
-			$wp_blog_desc = get_option( 'ccp_meta_blog_description' );
+			$wp_blog_desc = get_option( 'burcon_meta_blog_description' );
 
 			// If the settings field is empty use the tagline.
 			if ( $wp_blog_desc ) {
@@ -131,13 +131,13 @@ class Meta_Description {
 		$search_desc      = wp_strip_all_tags(
 			sprintf(
 				'%1s \'%2s\'',
-				__( 'Showing results for', 'controlled-chaos-plugin' ),
+				__( 'Showing results for', 'burcon-outfitters' ),
 				$search_query
 			)
 		);
 
 		// Apply a filter to hard-coded text.
-		$search_meta_desc = apply_filters( 'ccp_meta_description_search', $search_desc );
+		$search_meta_desc = apply_filters( 'burcon_meta_description_search', $search_desc );
 
 		// Look for a manual excerpt.
 		$manual_excerpt   = wp_strip_all_tags( get_the_excerpt() );
@@ -163,7 +163,7 @@ class Meta_Description {
 		}
 
 		// Apply a filter for other use cases.
-		$meta_description = apply_filters( 'ccp_meta_description', $description );
+		$meta_description = apply_filters( 'burcon_meta_description', $description );
 
 		// Echo the conditional description in the meta tag.
 		echo $meta_description;
@@ -179,11 +179,11 @@ class Meta_Description {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_meta_description() {
+function burcon_meta_description() {
 
 	return Meta_Description::instance();
 
 }
 
 // Run an instance of the class.
-ccp_meta_description();
+burcon_meta_description();

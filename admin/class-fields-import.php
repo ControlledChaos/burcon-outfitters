@@ -2,7 +2,7 @@
 /**
  * Import custom fields.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -75,8 +75,8 @@ final class Fields_Import {
 
 		add_submenu_page(
 			'edit.php?post_type=acf-field-group',
-			__( 'Registered Fields', 'controlled-chaos-plugin' ),
-			__( 'Registered Fields', 'controlled-chaos-plugin' ),
+			__( 'Registered Fields', 'burcon-outfitters' ),
+			__( 'Registered Fields', 'burcon-outfitters' ),
 			'manage_options', 'acf-theme-fields',
 			[ $this, 'page_output' ]
 		);
@@ -109,7 +109,7 @@ final class Fields_Import {
 
 			// Now we can import the groups
 			foreach ( $acf_local->groups as $key => $group ) {
-				$group['title'] = $group['title'] . __( ' (Imported)', 'controlled-chaos-plugin' );
+				$group['title'] = $group['title'] . __( ' (Imported)', 'burcon-outfitters' );
 
 				// Only import those that were selected.
 				if ( in_array( $key, $import_fieldsets ) ) {
@@ -165,11 +165,11 @@ final class Fields_Import {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_fields_import() {
+function burcon_fields_import() {
 
 	return Fields_Import::instance();
 
 }
 
 // Run an instance of the class.
-ccp_fields_import();
+burcon_fields_import();

@@ -2,7 +2,7 @@
 /**
  * The core plugin class.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -121,11 +121,11 @@ class Init {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_init() {
+function burcon_init() {
 
 	return Init::instance();
 
 }
 
 // Run an instance of the class.
-ccp_init();
+burcon_init();

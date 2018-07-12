@@ -2,7 +2,7 @@
 /**
  * Image meta tag.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend\Meta_Tags
  *
  * @since      1.0.0
@@ -58,7 +58,7 @@ class Meta_Image {
 	public function __construct() {
 
 		// Add the image to meta tag.
-		add_action( 'ccp_meta_image_tag', [ $this, 'image' ] );
+		add_action( 'burcon_meta_image_tag', [ $this, 'image' ] );
 
 	}
 
@@ -87,8 +87,8 @@ class Meta_Image {
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
 			// Get the ACF image fields.
-			$blog_image    = get_field( 'ccp_meta_blog_image', 'option' );
-			$default_image = get_field( 'ccp_meta_default_image', 'option' );
+			$blog_image    = get_field( 'burcon_meta_blog_image', 'option' );
+			$default_image = get_field( 'burcon_meta_default_image', 'option' );
 
 			/**
 			 * Conditionally get images.
@@ -124,7 +124,7 @@ class Meta_Image {
 
 			// Otherwise use the image path defined in the core plugin file.
 			} else {
-				$src   = CCP_DEFAULT_META_IMAGE;
+				$src   = BURCON_DEFAULT_META_IMAGE;
 			}
 
 			// Echo the image path in the meta tag.
@@ -149,7 +149,7 @@ class Meta_Image {
 
 			// Otherwise use the image path defined in the core plugin file.
 			} else {
-				$src = CCP_DEFAULT_META_IMAGE;
+				$src = BURCON_DEFAULT_META_IMAGE;
 			}
 
 			// Echo the image path in the meta tag.
@@ -168,11 +168,11 @@ class Meta_Image {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_meta_image() {
+function burcon_meta_image() {
 
 	return Meta_Image::instance();
 
 }
 
 // Run an instance of the class.
-ccp_meta_image();
+burcon_meta_image();

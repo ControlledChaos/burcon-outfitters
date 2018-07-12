@@ -2,7 +2,7 @@
 /**
  * Backend search form template.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials
  *
  * @since      1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-$label       = apply_filters( 'ccp_search_label', esc_html__( 'Search for:', 'controlled-chaos-plugin' ) );
-$placeholder = apply_filters( 'ccp_search_placeholder', esc_attr( esc_html__( 'Search ', 'controlled-chaos-plugin' ) . get_bloginfo( 'name' ) ) );
-$submit      = apply_filters( 'ccp_search_submit', esc_html__( 'Submit', 'controlled-chaos-plugin' ) );
+$label       = apply_filters( 'burcon_search_label', esc_html__( 'Search for:', 'burcon-outfitters' ) );
+$placeholder = apply_filters( 'burcon_search_placeholder', esc_attr( esc_html__( 'Search ', 'burcon-outfitters' ) . get_bloginfo( 'name' ) ) );
+$submit      = apply_filters( 'burcon_search_submit', esc_html__( 'Submit', 'burcon-outfitters' ) );
 ?>
 <form class="search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
     <label class="search-label">

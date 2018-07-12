@@ -2,7 +2,7 @@
 /**
  * The frontend functionality of the plugin.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend
  *
  * @since      1.0.0
@@ -72,9 +72,9 @@ class Frontend {
 	public function __construct() {
 
 		// Get inline options.
-		$jquery  = get_option( 'ccp_inline_jquery' );
-		$scripts = get_option( 'ccp_inline_scripts' );
-		$styles  = get_option( 'ccp_inline_styles' );
+		$jquery  = get_option( 'burcon_inline_jquery' );
+		$scripts = get_option( 'burcon_inline_scripts' );
+		$styles  = get_option( 'burcon_inline_styles' );
 
 		// Enqueue styles or add them inline.
 		if ( $styles ) {
@@ -137,10 +137,10 @@ class Frontend {
 	public function enqueue_styles() {
 
 		// Non-vendor plugin styles.
-		wp_enqueue_style( CCP_ADMIN_SLUG, plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', [], CCP_VERSION, 'all' );
+		wp_enqueue_style( BURCON_ADMIN_SLUG, plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', [], BURCON_VERSION, 'all' );
 
 		// Fancybox 3.
-		if ( get_option( 'ccp_enqueue_fancybox_styles' ) ) {
+		if ( get_option( 'burcon_enqueue_fancybox_styles' ) ) {
 
 			/**
 			 * Bail if the current theme supports ccd-fancybox by
@@ -149,23 +149,23 @@ class Frontend {
 			if ( current_theme_supports( 'ccd-fancybox' ) ) {
 				return;
 			} else {
-				wp_enqueue_style( CCP_ADMIN_SLUG . '-fancybox', plugin_dir_url( __FILE__ ) . 'assets/css/jquery.fancybox.min.css', [], CCP_VERSION, 'all' );
+				wp_enqueue_style( BURCON_ADMIN_SLUG . '-fancybox', plugin_dir_url( __FILE__ ) . 'assets/css/jquery.fancybox.min.css', [], BURCON_VERSION, 'all' );
 			}
 		}
 
 		// Slick.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
-			wp_enqueue_style( CCP_ADMIN_SLUG . '-slick', plugin_dir_url( __FILE__ ) . 'assets/css/slick.min.css', [], CCP_VERSION, 'all' );
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
+			wp_enqueue_style( BURCON_ADMIN_SLUG . '-slick', plugin_dir_url( __FILE__ ) . 'assets/css/slick.min.css', [], BURCON_VERSION, 'all' );
 		}
 
 		// Slick theme.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
-			wp_enqueue_style( CCP_ADMIN_SLUG . '-slick-theme', plugin_dir_url( __FILE__ ) . 'assets/css/slick-theme.css', [], CCP_VERSION, 'all' );
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
+			wp_enqueue_style( BURCON_ADMIN_SLUG . '-slick-theme', plugin_dir_url( __FILE__ ) . 'assets/css/slick-theme.css', [], BURCON_VERSION, 'all' );
 		}
 
 		// Tooltipster.
-		if ( get_option( 'ccp_enqueue_tooltipster' ) ) {
-			wp_enqueue_style( CCP_ADMIN_SLUG . '-tooltipster', plugin_dir_url( __FILE__ ) . 'assets/css/tooltipster.bundle.min.css', [], CCP_VERSION, 'all' );
+		if ( get_option( 'burcon_enqueue_tooltipster' ) ) {
+			wp_enqueue_style( BURCON_ADMIN_SLUG . '-tooltipster', plugin_dir_url( __FILE__ ) . 'assets/css/tooltipster.bundle.min.css', [], BURCON_VERSION, 'all' );
 		}
 
 	}
@@ -185,7 +185,7 @@ class Frontend {
 		$tooltipster = file_get_contents( esc_html( plugin_dir_path( __FILE__ ) . 'assets/css/tooltipster.bundle.min.css' ) );
 
 		// Fancybox 3.
-		if ( get_option( 'ccp_enqueue_fancybox_styles' ) ) {
+		if ( get_option( 'burcon_enqueue_fancybox_styles' ) ) {
 
 			/**
 			 * Bail if the current theme supports ccd-fancybox by
@@ -199,17 +199,17 @@ class Frontend {
 		}
 
 		// Slick.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
 			echo '<!-- Slick Scripts --><style>' . $slick . '</style>';
 		}
 
 		// Slick theme.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
 			echo '<!-- Tabslet Scripts --><style>' . $slick_theme . '</style>';
 		}
 
 		// Tooltipster.
-		if ( get_option( 'ccp_enqueue_tooltipster' ) ) {
+		if ( get_option( 'burcon_enqueue_tooltipster' ) ) {
 			echo '<!-- Tooltipster Scripts --><style>' . $tooltipster . '</style>';
 		}
 
@@ -225,30 +225,30 @@ class Frontend {
 	public function enqueue_scripts() {
 
 		// Non-vendor plugin script. Uncomment to use.
-		// wp_enqueue_script( CCP_ADMIN_SLUG, plugin_dir_url( __FILE__ ) . 'assets/js/frontend.js', [ 'jquery' ], CCP_VERSION, true );
+		// wp_enqueue_script( BURCON_ADMIN_SLUG, plugin_dir_url( __FILE__ ) . 'assets/js/frontend.js', [ 'jquery' ], BURCON_VERSION, true );
 
 		// Fancybox 3.
-		if ( get_option( 'ccp_enqueue_fancybox_script' ) ) {
-			wp_enqueue_script( CCP_ADMIN_SLUG . '-fancybox', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.fancybox.min.js', [ 'jquery' ], CCP_VERSION, true );
+		if ( get_option( 'burcon_enqueue_fancybox_script' ) ) {
+			wp_enqueue_script( BURCON_ADMIN_SLUG . '-fancybox', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.fancybox.min.js', [ 'jquery' ], BURCON_VERSION, true );
 		}
 
 		// Slick.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
-			wp_enqueue_script( CCP_ADMIN_SLUG . '-slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', [ 'jquery' ], CCP_VERSION, true );
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
+			wp_enqueue_script( BURCON_ADMIN_SLUG . '-slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', [ 'jquery' ], BURCON_VERSION, true );
 		}
 
 		// Tabslet.
-		if ( get_option( 'ccp_enqueue_tabslet' ) ) {
-			wp_enqueue_script( CCP_ADMIN_SLUG . '-tabslet', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.tabslet.min.js', [ 'jquery' ], CCP_VERSION, true );
+		if ( get_option( 'burcon_enqueue_tabslet' ) ) {
+			wp_enqueue_script( BURCON_ADMIN_SLUG . '-tabslet', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.tabslet.min.js', [ 'jquery' ], BURCON_VERSION, true );
 		}
 
 		// Tooltipster.
-		if ( get_option( 'ccp_enqueue_tooltipster' ) ) {
-			wp_enqueue_script( CCP_ADMIN_SLUG . '-tooltipster', plugin_dir_url( __FILE__ ) . 'assets/js/tooltipster.bundle.min.js', [ 'jquery' ], CCP_VERSION, true );
+		if ( get_option( 'burcon_enqueue_tooltipster' ) ) {
+			wp_enqueue_script( BURCON_ADMIN_SLUG . '-tooltipster', plugin_dir_url( __FILE__ ) . 'assets/js/tooltipster.bundle.min.js', [ 'jquery' ], BURCON_VERSION, true );
 		}
 
 		// FitVids.
-		wp_enqueue_script( CCP_ADMIN_SLUG . '-fitvids', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.fitvids.min.js', [ 'jquery' ], CCP_VERSION, true );
+		wp_enqueue_script( BURCON_ADMIN_SLUG . '-fitvids', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.fitvids.min.js', [ 'jquery' ], BURCON_VERSION, true );
 
 	}
 
@@ -305,27 +305,27 @@ class Frontend {
 		$fitvids     = file_get_contents( esc_html( plugin_dir_path( __FILE__ ) . 'assets/js/jquery.fitvids.min.js' ) );
 
 		// Fancybox 3.
-		if ( get_option( 'ccp_enqueue_fancybox_script' ) ) {
+		if ( get_option( 'burcon_enqueue_fancybox_script' ) ) {
 			echo '<!-- Fancybox 3 Scripts --><script>' . $fancybox . '</script>';
 		}
 
 		// Slick.
-		if ( get_option( 'ccp_enqueue_slick' ) ) {
+		if ( get_option( 'burcon_enqueue_slick' ) ) {
 			echo '<!-- Slick Scripts --><script>' . $slick . '</script>';
 		}
 
 		// Tabslet.
-		if ( get_option( 'ccp_enqueue_tabslet' ) ) {
+		if ( get_option( 'burcon_enqueue_tabslet' ) ) {
 			echo '<!-- Tabslet Scripts --><script>' . $tabslet . '</script>';
 		}
 
 		// Tooltipster.
-		if ( get_option( 'ccp_enqueue_tooltipster' ) ) {
+		if ( get_option( 'burcon_enqueue_tooltipster' ) ) {
 			echo '<!-- Tooltipster Scripts --><script>' . $tooltipster . '</script>';
 		}
 
 		// Sticky-kit.
-		if ( get_option( 'ccp_enqueue_stickykit' ) ) {
+		if ( get_option( 'burcon_enqueue_stickykit' ) ) {
 			echo '<!-- Sticky-kit Scripts --><script>' . $stickykit . '</script>';
 		}
 
@@ -352,7 +352,7 @@ class Frontend {
 
 		if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
-			$disable_tags = get_field( 'ccp_disable_meta_tags', 'option' );
+			$disable_tags = get_field( 'burcon_disable_meta_tags', 'option' );
 
 			if ( false == $disable_tags ) {
 
@@ -365,7 +365,7 @@ class Frontend {
 
 		} else {
 
-			$disable_tags = get_option( 'ccp_disable_meta' );
+			$disable_tags = get_option( 'burcon_disable_meta' );
 
 			if ( ! $disable_tags ) {
 
@@ -391,7 +391,7 @@ class Frontend {
 	 */
 	public function attachment_fancybox() {
 
-		if ( is_attachment() && get_option( 'ccp_enqueue_fancybox_script' ) ) { ?>
+		if ( is_attachment() && get_option( 'burcon_enqueue_fancybox_script' ) ) { ?>
 
 			<script>
 			jQuery(document).ready(function() {
@@ -412,11 +412,11 @@ class Frontend {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_frontend() {
+function burcon_frontend() {
 
 	return Frontend::instance();
 
 }
 
 // Run an instance of the class.
-ccp_frontend();
+burcon_frontend();

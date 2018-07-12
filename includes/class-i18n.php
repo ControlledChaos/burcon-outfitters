@@ -2,7 +2,7 @@
 /**
  * Define the internationalization functionality.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -73,7 +73,7 @@ class i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'controlled-chaos-plugin',
+			'burcon-outfitters',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
@@ -89,11 +89,11 @@ class i18n {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_i18n() {
+function burcon_i18n() {
 
 	return i18n::instance();
 
 }
 
 // Run an instance of the class.
-ccp_i18n();
+burcon_i18n();

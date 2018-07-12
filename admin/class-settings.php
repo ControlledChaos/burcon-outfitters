@@ -2,7 +2,7 @@
 /**
  * The core settings class for the plugin.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -113,11 +113,11 @@ class Settings {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_settings() {
+function burcon_settings() {
 
 	return Settings::instance();
 
 }
 
 // Run an instance of the class.
-ccp_settings();
+burcon_settings();

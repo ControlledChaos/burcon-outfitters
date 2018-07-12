@@ -2,7 +2,7 @@
 /**
  * Register post types.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -55,47 +55,47 @@ final class Post_Types_Register {
          * Renaming:
          * Search case "Custom Post" and replace with your post type capitalized name.
          * Search case "custom post" and replace with your post type lowercase name.
-         * Search case "ccp_post_type" and replace with your post type database name.
+         * Search case "burcon_post_type" and replace with your post type database name.
          */
 
         $labels = [
-            'name'                  => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'singular_name'         => __( 'Custom Post', 'controlled-chaos-plugin' ),
-            'menu_name'             => __( 'Custom Posts', 'controlled-chaos-plugin' ),
-            'all_items'             => __( 'All Custom Posts', 'controlled-chaos-plugin' ),
-            'add_new'               => __( 'Add New', 'controlled-chaos-plugin' ),
-            'add_new_item'          => __( 'Add New Custom Post', 'controlled-chaos-plugin' ),
-            'edit_item'             => __( 'Edit Custom Post', 'controlled-chaos-plugin' ),
-            'new_item'              => __( 'New Custom Post', 'controlled-chaos-plugin' ),
-            'view_item'             => __( 'View Custom Post', 'controlled-chaos-plugin' ),
-            'view_items'            => __( 'View Custom Posts', 'controlled-chaos-plugin' ),
-            'search_items'          => __( 'Search Custom Posts', 'controlled-chaos-plugin' ),
-            'not_found'             => __( 'No Custom Posts Found', 'controlled-chaos-plugin' ),
-            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
-            'featured_image'        => __( 'Featured image for this custom post', 'controlled-chaos-plugin' ),
-            'set_featured_image'    => __( 'Set featured image for this custom post', 'controlled-chaos-plugin' ),
-            'remove_featured_image' => __( 'Remove featured image for this custom post', 'controlled-chaos-plugin' ),
-            'use_featured_image'    => __( 'Use as featured image for this custom post', 'controlled-chaos-plugin' ),
-            'archives'              => __( 'Custom Post archives', 'controlled-chaos-plugin' ),
-            'insert_into_item'      => __( 'Insert into Custom Post', 'controlled-chaos-plugin' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'controlled-chaos-plugin' ),
-            'filter_items_list'     => __( 'Filter Custom Posts', 'controlled-chaos-plugin' ),
-            'items_list_navigation' => __( 'Custom Posts list navigation', 'controlled-chaos-plugin' ),
-            'items_list'            => __( 'Custom Posts List', 'controlled-chaos-plugin' ),
-            'attributes'            => __( 'Custom Post Attributes', 'controlled-chaos-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'controlled-chaos-plugin' ),
+            'name'                  => __( 'Custom Posts', 'burcon-outfitters' ),
+            'singular_name'         => __( 'Custom Post', 'burcon-outfitters' ),
+            'menu_name'             => __( 'Custom Posts', 'burcon-outfitters' ),
+            'all_items'             => __( 'All Custom Posts', 'burcon-outfitters' ),
+            'add_new'               => __( 'Add New', 'burcon-outfitters' ),
+            'add_new_item'          => __( 'Add New Custom Post', 'burcon-outfitters' ),
+            'edit_item'             => __( 'Edit Custom Post', 'burcon-outfitters' ),
+            'new_item'              => __( 'New Custom Post', 'burcon-outfitters' ),
+            'view_item'             => __( 'View Custom Post', 'burcon-outfitters' ),
+            'view_items'            => __( 'View Custom Posts', 'burcon-outfitters' ),
+            'search_items'          => __( 'Search Custom Posts', 'burcon-outfitters' ),
+            'not_found'             => __( 'No Custom Posts Found', 'burcon-outfitters' ),
+            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'burcon-outfitters' ),
+            'parent_item_colon'     => __( 'Parent Custom Post', 'burcon-outfitters' ),
+            'featured_image'        => __( 'Featured image for this custom post', 'burcon-outfitters' ),
+            'set_featured_image'    => __( 'Set featured image for this custom post', 'burcon-outfitters' ),
+            'remove_featured_image' => __( 'Remove featured image for this custom post', 'burcon-outfitters' ),
+            'use_featured_image'    => __( 'Use as featured image for this custom post', 'burcon-outfitters' ),
+            'archives'              => __( 'Custom Post archives', 'burcon-outfitters' ),
+            'insert_into_item'      => __( 'Insert into Custom Post', 'burcon-outfitters' ),
+            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'burcon-outfitters' ),
+            'filter_items_list'     => __( 'Filter Custom Posts', 'burcon-outfitters' ),
+            'items_list_navigation' => __( 'Custom Posts list navigation', 'burcon-outfitters' ),
+            'items_list'            => __( 'Custom Posts List', 'burcon-outfitters' ),
+            'attributes'            => __( 'Custom Post Attributes', 'burcon-outfitters' ),
+            'parent_item_colon'     => __( 'Parent Custom Post', 'burcon-outfitters' ),
         ];
 
         $args = [
-            'label'               => __( 'Custom Posts', 'controlled-chaos-plugin' ),
+            'label'               => __( 'Custom Posts', 'burcon-outfitters' ),
             'labels'              => $labels,
-            'description'         => __( 'Custom post type description.', 'controlled-chaos-plugin' ),
+            'description'         => __( 'Custom post type description.', 'burcon-outfitters' ),
             'public'              => true,
             'publicly_queryable'  => true,
             'show_ui'             => true,
             'show_in_rest'        => false,
-            'rest_base'           => 'ccp_post_type_rest_api',
+            'rest_base'           => 'burcon_post_type_rest_api',
             'has_archive'         => true,
             'show_in_menu'        => true,
             'exclude_from_search' => false,
@@ -106,7 +106,7 @@ final class Post_Types_Register {
                 'slug'       => 'custom-posts',
                 'with_front' => true
             ],
-            'query_var'           => 'ccp_post_type',
+            'query_var'           => 'burcon_post_type',
             'menu_position'       => 5,
             'menu_icon'           => 'dashicons-admin-post',
             'supports'            => [
@@ -125,12 +125,12 @@ final class Post_Types_Register {
             'taxonomies'          => [
                 'category',
                 'post_tag',
-                'ccp_taxonomy' // Change to your custom taxonomy name.
+                'burcon_taxonomy' // Change to your custom taxonomy name.
             ],
         ];
 
         register_post_type(
-            'ccp_post_type',
+            'burcon_post_type',
             $args
         );
 

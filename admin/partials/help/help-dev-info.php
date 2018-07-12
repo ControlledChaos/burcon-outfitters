@@ -2,7 +2,7 @@
 /**
  * Content for the dev More Information help tab.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Partials\Help
  *
  * @since      1.0.0
@@ -15,5 +15,5 @@ namespace CC_Plugin\Admin\Partials\Help;
 if ( ! defined( 'WPINC' ) ) {
 	die;
 } ?>
-<h3><?php _e( 'More Information', 'controlled-chaos-plugin' ); ?></h3>
-<p><?php _e( '', 'controlled-chaos-plugin' ); ?></p>
+<h3><?php _e( 'More Information', 'burcon-outfitters' ); ?></h3>
+<p><?php _e( '', 'burcon-outfitters' ); ?></p>

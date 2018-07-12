@@ -6,7 +6,7 @@
  * the same way that templates can be used for post types.
  * The template is registered in the file header.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -158,9 +158,9 @@ final class Taxonomy_Templates {
 			return;
 		} ?>
 		<div class="form-field custom-taxonomy-template">
-			<label for="custom-taxonomy-template"><?php _e( 'Template', 'controlled-chaos-plugin' ); ?></label>
+			<label for="custom-taxonomy-template"><?php _e( 'Template', 'burcon-outfitters' ); ?></label>
 			<select name="custom-taxonomy-template" id="custom-taxonomy-template" class="postform">
-				<option value="default"><?php _e( 'Default Template', 'controlled-chaos-plugin' ); ?></option>
+				<option value="default"><?php _e( 'Default Template', 'burcon-outfitters' ); ?></option>
 				<?php $this->templates_dropdown( $taxonomy ) ?>
 			</select>
 		</div><?php
@@ -185,11 +185,11 @@ final class Taxonomy_Templates {
 
 		<tr class="form-field custom-taxonomy-template">
 			<th scope="row" valign="top">
-				<label for="custom-taxonomy-template"><?php _e( 'Template', 'controlled-chaos-plugin' ); ?></label>
+				<label for="custom-taxonomy-template"><?php _e( 'Template', 'burcon-outfitters' ); ?></label>
 			</th>
 			<td>
 				<select name="custom-taxonomy-template" id="custom-taxonomy-template" class="postform">
-					<option value="default"><?php _e( 'Default Template', 'controlled-chaos-plugin' ); ?></option>
+					<option value="default"><?php _e( 'Default Template', 'burcon-outfitters' ); ?></option>
 					<?php $this->templates_dropdown( $taxonomy, $template ) ?>
 				</select>
 			</td>

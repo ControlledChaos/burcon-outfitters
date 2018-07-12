@@ -2,7 +2,7 @@
 /**
  * Dashboard functionality.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin\Dashboard
  *
  * @since      1.0.0
@@ -174,7 +174,7 @@ class Dashboard {
         if ( class_exists( 'acf_pro' ) || ( class_exists( 'acf' ) && class_exists( 'acf_options_page' ) ) ) {
 
             // Get the multiple checkbox field.
-            $hide = get_field( 'ccp_dashboard_hide_widgets', 'option' );
+            $hide = get_field( 'burcon_dashboard_hide_widgets', 'option' );
 
             // Hide the Welcome panel.
             if ( $hide && in_array( 'welcome', $hide ) ) {
@@ -209,11 +209,11 @@ class Dashboard {
              */
 
             // Get options.
-            $welcome    = get_option( 'ccp_hide_welcome' );
-            $wp_news    = get_option( 'ccp_hide_wp_news' );
-            $quickpress = get_option( 'ccp_hide_quickpress' );
-            $at_glance  = get_option( 'ccp_hide_at_glance' );
-            $activity   = get_option( 'ccp_hide_activity' );
+            $welcome    = get_option( 'burcon_hide_welcome' );
+            $wp_news    = get_option( 'burcon_hide_wp_news' );
+            $quickpress = get_option( 'burcon_hide_quickpress' );
+            $at_glance  = get_option( 'burcon_hide_at_glance' );
+            $activity   = get_option( 'burcon_hide_activity' );
 
             // Hide the Welcome panel.
             if ( $welcome ) {
@@ -297,7 +297,7 @@ class Dashboard {
         // Dashboard widget tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_welcome_panel',
-			'title'    => __( 'Welcome Panel', 'controlled-chaos-plugin' ),
+			'title'    => __( 'Welcome Panel', 'burcon-outfitters' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_welcome_panel' ]
         ] );
@@ -305,7 +305,7 @@ class Dashboard {
         // Dashboard widget tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_dashboard_widgets',
-			'title'    => __( 'Dashboard Widgets', 'controlled-chaos-plugin' ),
+			'title'    => __( 'Dashboard Widgets', 'burcon-outfitters' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_dashboard_widgets' ]
 		] );
@@ -351,7 +351,7 @@ class Dashboard {
 
         $html  = sprintf(
             '<h4>%1s %2s</h4>',
-            __( 'Custom Dashboard for', 'controlled-chaos-plugin' ),
+            __( 'Custom Dashboard for', 'burcon-outfitters' ),
              get_bloginfo( 'name' )
         );
 
@@ -360,7 +360,7 @@ class Dashboard {
         $html .= sprintf(
             '<p>%1s <a href="%2s">%3s</a></p>',
             __( 'Customize your' ),
-            esc_url( 'http://localhost/controlledchaos/wp-admin/index.php?page=' . CCP_ADMIN_SLUG . '-settings' ),
+            esc_url( 'http://localhost/controlledchaos/wp-admin/index.php?page=' . BURCON_ADMIN_SLUG . '-settings' ),
             __( 'Dashboard Settings' )
         );
 
@@ -384,7 +384,7 @@ class Dashboard {
 
         // Enqueue only on the Dashboard screen.
         if ( $screen->id == 'dashboard' ) {
-            // wp_enqueue_style( 'ccp_dashboard', get_theme_file_uri( '/includes/widgets/dashboard/assets/css/dashboard.css' ), [], null, 'screen' );
+            // wp_enqueue_style( 'burcon_dashboard', get_theme_file_uri( '/includes/widgets/dashboard/assets/css/dashboard.css' ), [], null, 'screen' );
         }
 
 	}
@@ -398,11 +398,11 @@ class Dashboard {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_dashboard() {
+function burcon_dashboard() {
 
 	return Dashboard::instance();
 
 }
 
 // Run an instance of the class.
-ccp_dashboard();
+burcon_dashboard();

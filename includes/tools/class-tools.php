@@ -2,7 +2,7 @@
 /**
  * Various tools included.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Tools
  *
  * @since      1.0.0
@@ -76,26 +76,26 @@ class Tools {
 	private function dependencies() {
 
 		// Minify HTML source code.
-		$debug = get_option( 'ccp_debug_mode' );
+		$debug = get_option( 'burcon_debug_mode' );
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/class-debug.php';
 
 		// Include the RTL (right to left) test if option selected.
-		$rtl = get_option( 'ccp_rtl_test' );
+		$rtl = get_option( 'burcon_rtl_test' );
 
 		if ( $rtl ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/class-rtl-test.php';
 		}
 
 		// Minify HTML source code.
-		$minify = get_option( 'ccp_html_minify' );
+		$minify = get_option( 'burcon_html_minify' );
 
 		if ( $minify ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/class-minify-process.php';
 		}
 
 		// Live theme test.
-		$theme_test = get_option( 'ccp_theme_test' );
+		$theme_test = get_option( 'burcon_theme_test' );
 
 		if ( $theme_test ) {
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/class-theme-test.php';
@@ -112,11 +112,11 @@ class Tools {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_tools() {
+function burcon_tools() {
 
 	return Tools::instance();
 
 }
 
 // Run an instance of the class.
-ccp_tools();
+burcon_tools();

@@ -2,7 +2,7 @@
 /**
  * Admin functiontionality and settings.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Admin
  *
  * @since      1.0.0
@@ -118,7 +118,7 @@ class Admin {
 		require_once plugin_dir_path( __FILE__ ) . 'class-settings.php';
 
 		// Include custom fields for Advanced Custom Fields Pro, if active.
-		if ( class_exists( 'acf_pro' ) && ! get_option( 'ccp_acf_activate_settings_page' ) ) {
+		if ( class_exists( 'acf_pro' ) && ! get_option( 'burcon_acf_activate_settings_page' ) ) {
 			include_once plugin_dir_path( __FILE__ ) . 'class-settings-fields-acf.php';
 		}
 
@@ -270,15 +270,15 @@ class Admin {
 			 * Get the fields registered by this plugin. An additional parameter
 			 * of 'option' must be included to target the options page.
 			 */
-			$credit = get_field( 'ccp_admin_footer_credit', 'option' );
-			$link   = get_field( 'ccp_admin_footer_link', 'option' );
+			$credit = get_field( 'burcon_admin_footer_credit', 'option' );
+			$link   = get_field( 'burcon_admin_footer_link', 'option' );
 
 			// If a name and a URL are provided.
 			if ( $credit && $link ) {
 				$footer = sprintf(
 					'%1s %2s <a href="%3s" target="_blank">%4s</a>. ',
 					$site,
-					esc_html__( 'website designed & developed by', 'controlled-chaos-plugin' ),
+					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
 					esc_url( $link ),
 					$credit
 				);
@@ -287,7 +287,7 @@ class Admin {
 				$footer = sprintf(
 					'%1s %2s %3s. ',
 					$site,
-					esc_html__( 'website designed & developed by', 'controlled-chaos-plugin' ),
+					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
 					$credit
 				);
 			// If no input we use the name of the site.
@@ -295,7 +295,7 @@ class Admin {
 				$footer = sprintf(
 					'%1s %2s. ',
 					$site,
-					esc_html__( 'website powered by WordPress', 'controlled-chaos-plugin' )
+					esc_html__( 'website powered by WordPress', 'burcon-outfitters' )
 				);
 			}
 
@@ -307,15 +307,15 @@ class Admin {
 		 */
 		} else {
 
-			$credit = sanitize_text_field( get_option( 'ccp_footer_credit' ) );
-			$link   = esc_url_raw( get_option( 'ccp_footer_link' ) );
+			$credit = sanitize_text_field( get_option( 'burcon_footer_credit' ) );
+			$link   = esc_url_raw( get_option( 'burcon_footer_link' ) );
 
 			// If a name and a URL are provided.
 			if ( $credit && $link ) {
 				$footer = sprintf(
 					'%1s %2s <a href="%3s" target="_blank">%4s</a>. ',
 					$site,
-					esc_html__( 'website designed & developed by', 'controlled-chaos-plugin' ),
+					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
 					esc_url( $link ),
 					$credit
 				);
@@ -324,7 +324,7 @@ class Admin {
 				$footer = sprintf(
 					'%1s %2s %3s. ',
 					$site,
-					esc_html__( 'website designed & developed by', 'controlled-chaos-plugin' ),
+					esc_html__( 'website designed & developed by', 'burcon-outfitters' ),
 					$credit
 				);
 			// If no input we use the name of the site.
@@ -332,14 +332,14 @@ class Admin {
 				$footer = sprintf(
 					'%1s %2s. ',
 					$site,
-					esc_html__( 'website powered by WordPress', 'controlled-chaos-plugin' )
+					esc_html__( 'website powered by WordPress', 'burcon-outfitters' )
 				);
 			}
 
 		}
 
 		// Apply a filter for unforseen possibilities.
-		$admin_footer = apply_filters( 'ccp_admin_footer', $footer );
+		$admin_footer = apply_filters( 'burcon_admin_footer', $footer );
 
 		// Echo the string.
 		echo $admin_footer;
@@ -362,7 +362,7 @@ class Admin {
 		 *
 		 * @since 1.0.0
 		 */
-		wp_enqueue_style( CCP_ADMIN_SLUG . '-admin', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css', [], CCP_VERSION, 'all' );
+		wp_enqueue_style( BURCON_ADMIN_SLUG . '-admin', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css', [], BURCON_VERSION, 'all' );
 
 		/**
 		 * Enqueue the custom welcome panel styles.
@@ -371,9 +371,9 @@ class Admin {
 		 *
 		 * @since 1.0.0
 		 */
-		$welcome = get_option( 'ccp_custom_welcome' );
+		$welcome = get_option( 'burcon_custom_welcome' );
 		if ( $welcome ) {
-			wp_enqueue_style( CCP_ADMIN_SLUG . '-welcome', plugin_dir_url( __FILE__ ) . 'assets/css/welcome.css', [], CCP_VERSION, 'all' );
+			wp_enqueue_style( BURCON_ADMIN_SLUG . '-welcome', plugin_dir_url( __FILE__ ) . 'assets/css/welcome.css', [], BURCON_VERSION, 'all' );
 		}
 
 	}
@@ -425,10 +425,10 @@ class Admin {
 		wp_enqueue_script( 'jquery-ui-tabs' );
 
 		// Enqueue Conditionalize for conditional form fields.
-		wp_enqueue_script( CCP_ADMIN_SLUG . '-conditionalize', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', [ 'jquery' ], CCP_VERSION, true );
+		wp_enqueue_script( BURCON_ADMIN_SLUG . '-conditionalize', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', [ 'jquery' ], BURCON_VERSION, true );
 
 		// Enqueue scripts for backend functionality of this plugin.
-		wp_enqueue_script( CCP_ADMIN_SLUG . '-admin', plugin_dir_url( __FILE__ ) . 'assets/js/conditionize.flexible.jquery.min.js', [ 'jquery' ], CCP_VERSION, true );
+		wp_enqueue_script( BURCON_ADMIN_SLUG . '-admin', plugin_dir_url( __FILE__ ) . 'assets/js/conditionize.flexible.jquery.min.js', [ 'jquery' ], BURCON_VERSION, true );
 
 	}
 
@@ -441,11 +441,11 @@ class Admin {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_admin() {
+function burcon_admin() {
 
 	return Admin::instance();
 
 }
 
 // Run an instance of the class.
-ccp_admin();
+burcon_admin();

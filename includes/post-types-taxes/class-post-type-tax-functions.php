@@ -2,7 +2,7 @@
 /**
  * Functions for post types and taxonomies.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
@@ -95,48 +95,48 @@ class Post_Type_Tax_Functions {
 				0  => '', /* Unused. Messages start at index 1 */
 
 				1  => sprintf(
-					__( '%1s updated. <a href="%2s">View %3s</a>', 'controlled-chaos-plugin' ), $post_object->labels->singular_name,
+					__( '%1s updated. <a href="%2s">View %3s</a>', 'burcon-outfitters' ), $post_object->labels->singular_name,
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
-				2  => __( 'Custom field updated.', 'controlled-chaos-plugin' ),
-				3  => __( 'Custom field deleted.', 'controlled-chaos-plugin' ),
+				2  => __( 'Custom field updated.', 'burcon-outfitters' ),
+				3  => __( 'Custom field deleted.', 'burcon-outfitters' ),
 				4  => sprintf(
-					__( '1%s updated.', 'controlled-chaos-plugin' ),
+					__( '1%s updated.', 'burcon-outfitters' ),
 					$post_object->labels->singular_name
 				),
 				5  => isset( $_GET['revision']) ? sprintf(
-					__( '%1s restored to revision from %2s', 'controlled-chaos-plugin' ),
+					__( '%1s restored to revision from %2s', 'burcon-outfitters' ),
 					$post_object->labels->singular_name,
 					wp_post_revision_title( (int) $_GET['revision'], false )
 					) : false,
 				6  => sprintf(
-					__( '%1s published. <a href="%2s">View %3s</a>', 'controlled-chaos-plugin' ),
+					__( '%1s published. <a href="%2s">View %3s</a>', 'burcon-outfitters' ),
 					$post_object->labels->singular_name,
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
 				7  => sprintf(
-					__( '%1s saved.', 'controlled-chaos-plugin' ),
+					__( '%1s saved.', 'burcon-outfitters' ),
 					$post_object->labels->singular_name
 				),
 				8  => sprintf(
-					__( '%1s submitted. <a target="_blank" href="%2s">Preview %3s</a>', 'controlled-chaos-plugin' ),
+					__( '%1s submitted. <a target="_blank" href="%2s">Preview %3s</a>', 'burcon-outfitters' ),
 					$post_object->labels->singular_name,
 					esc_url( add_query_arg( 'preview', 'true',
 					get_permalink( $post_ID ) ) ),
 					$post_object->labels->singular_name
 				),
 				9  => sprintf(
-					__( '%1s scheduled for: <strong>%2s</strong>. <a target="_blank" href="%3s">Preview %4s</a>', 'controlled-chaos-plugin'  ),
+					__( '%1s scheduled for: <strong>%2s</strong>. <a target="_blank" href="%3s">Preview %4s</a>', 'burcon-outfitters'  ),
 					$post_object->labels->singular_name,
-					date_i18n( __( 'M j, Y @ G:i', 'controlled-chaos-plugin' ),
+					date_i18n( __( 'M j, Y @ G:i', 'burcon-outfitters' ),
 					strtotime( $post->post_date ) ),
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
 				10 => sprintf(
-					__( '%1s draft updated. <a target="_blank" href="%2s">Preview %3s</a>', 'controlled-chaos-plugin'  ),
+					__( '%1s draft updated. <a target="_blank" href="%2s">Preview %3s</a>', 'burcon-outfitters'  ),
 					$post_object->labels->singular_name,
 					esc_url( add_query_arg( 'preview', 'true',
 					get_permalink( $post_ID ) ) ),
@@ -170,9 +170,9 @@ class Post_Type_Tax_Functions {
 		$screen = get_current_screen();
 
 		if ( '' == $screen->post_type ) {
-			$title = __( '', 'controlled-chaos-plugin' );
+			$title = __( '', 'burcon-outfitters' );
 		} elseif ( '' == $screen->post_type ) {
-			$title = __( '', 'controlled-chaos-plugin' );
+			$title = __( '', 'burcon-outfitters' );
 		}
 
 		return $title;
@@ -187,11 +187,11 @@ class Post_Type_Tax_Functions {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_type_taxe_functions() {
+function burcon_type_taxe_functions() {
 
 	return Post_Type_Tax_Functions::instance();
 
 }
 
 // Run an instance of the class.
-ccp_type_taxe_functions();
+burcon_type_taxe_functions();

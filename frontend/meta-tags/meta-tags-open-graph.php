@@ -2,7 +2,7 @@
 /**
  * Open Graph meta tags.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Frontend\Meta_Tags
  *
  * @since      1.0.0
@@ -19,14 +19,14 @@ if ( ! defined( 'WPINC' ) ) {
 } ?>
 
 <!-- Open Graph meta -->
-<meta property="og:url" content="<?php do_action( 'ccp_meta_url_tag' ); ?>" />
+<meta property="og:url" content="<?php do_action( 'burcon_meta_url_tag' ); ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="<?php echo get_locale(); ?>" />
 <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
-<meta property="og:title" content="<?php do_action( 'ccp_meta_title_tag' ); ?>" />
+<meta property="og:title" content="<?php do_action( 'burcon_meta_title_tag' ); ?>" />
 <?php if ( is_404() ) : ?>
 <meta property="og:description" content="404: Not Found" />
 <?php else : ?>
-<meta property="og:description" content="<?php do_action( 'ccp_meta_description_tag' ); ?>" />
+<meta property="og:description" content="<?php do_action( 'burcon_meta_description_tag' ); ?>" />
 <?php endif; ?>
-<meta property="og:image" content="<?php do_action( 'ccp_meta_image_tag' ); ?>" />
+<meta property="og:image" content="<?php do_action( 'burcon_meta_image_tag' ); ?>" />

@@ -4,7 +4,7 @@
  *
  * This file must not be namespaced.
  *
- * @package    Controlled_Chaos_Plugin
+ * @package    Burcon_Outfitters
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -75,7 +75,7 @@ class Controlled_Chaos_Activate {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_activate() {
+function burcon_activate() {
 
 	return Controlled_Chaos_Activate::instance();
 
